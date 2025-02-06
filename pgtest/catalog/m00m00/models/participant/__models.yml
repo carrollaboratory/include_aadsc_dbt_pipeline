@@ -1,0 +1,90 @@
+version: 2
+
+models:
+  - name: stg_moo_participant
+    description: '{{ doc("stg_moo_participant") }}'
+    columns:
+      - name: study_code
+        description: '{{ doc("study_code") }}'
+        data_type: string
+        tests:
+          - not_null
+
+      - name: participant_global_id
+        description: '{{ doc("participant_global_id") }}'
+        data_type: string
+        tests:
+          - not_null
+          - unique
+
+      - name: participant_external_id
+        description: "participant_external_id"
+        data_type: string
+        tests:
+          - not_null
+
+      - name: family_id
+        description: "family_id"
+        data_type: string
+
+      - name: family_type
+        description: ""
+        data_type: string
+
+      - name: father_id
+        description: ""
+        data_type: string
+
+      - name: mother_id
+        description: ""
+        data_type: string
+
+      - name: sibling_id
+        description: ""
+        data_type: string
+
+      - name: other_family_member_id
+        description: ""
+        data_type: string
+
+      - name: family_relationship
+        description: ""
+        data_type: string
+
+      - name: sex
+        description: ""
+        data_type: string
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female', 'Unknown']
+
+      - name: race
+        description: ""
+        data_type: string
+
+      - name: ethnicity
+        description: ""
+        data_type: string
+
+      - name: down_syndrome_status
+        description: ""
+        data_type: string
+
+      - name: age_first_engagement
+        description: ""
+        data_type: integer
+
+      - name: first_engagement_event
+        description: ""
+        data_type: string
+
+      - name: vital_status
+        description: ""
+        data_type: string
+        tests:
+          - accepted_values:
+              values: ['Alive', 'Deceased', 'Unknown or Not Available']
+
+      - name: age_last_vital_status
+        description: ""
+        data_type: integer
