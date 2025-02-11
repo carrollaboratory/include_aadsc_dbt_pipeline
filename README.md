@@ -45,6 +45,11 @@ GRANT ALL PRIVILEGES ON DATABASE default_db TO gutmanb;
 -- see roles that can login
 SELECT rolname FROM pg_roles WHERE rolcanlogin;
 
+--to use copy youll need to be a superuser
+psql -h $DB_HOST -U postgres -d $DB_NAME
+ALTER ROLE your_user WITH SUPERUSER;
+
+
 -- get out of postgres
 \q
 
@@ -61,14 +66,19 @@ chmod 600 ~/.pgpass
 SELECT current_database(), current_user;
 -- what tables/schemas
 SELECT schemaname, tablename FROM pg_tables;
-SELECT schemaname, tablename FROM pg_tables WHERE schemaname LIKE '%moo%' ;
+
+SELECT schemaname, tablename FROM pg_tables WHERE schemaname NOT LIKE 'pg%' 
+AND schemaname NOT LIKE 'information%' AND tablename NOT LIKE 'my_first_dbt_model' 
+ORDER BY schemaname;
 -- or
 \dt dbo_seed_data.* -- \dt 
 
 -- query
 -- Suggestion all lowercase and you don't need quotes
-SELECT * FROM "default_db"."dbo_moo_participant_schema"."participants_M00M00"
 
+--  from the utils dir, Clean out db by individual schema
+ dbt run-operation delete_all_tables --args '{"schema_name": "dbo_moo_data"}'
+ python scripts/process_data.py -f data/participants_M00M00.csv -t participants_m00m002 --ran it from utils
 ```
 
 # Notes 
