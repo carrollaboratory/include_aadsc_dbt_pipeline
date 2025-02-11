@@ -1,0 +1,18 @@
+name: 'ftd_consensus'
+version: '1.0.0'
+
+profile: 'pgtest'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+clean-targets:  
+  - "target"
+  - "dbt_packages"
+
+models:
+  ftd_consensus:
+    +materialized: view
+    +schema: consensus_data
+    participant:
+    condition:

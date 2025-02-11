@@ -8,6 +8,7 @@
 # dbt seed --select m00m00.*
 # dbt test --select stg_participant_data
 
+#  dbt run-operation delete_all_tables --args '{"schema_name": "dbo_moo_data"}'
 
 # dbt --help
 
@@ -18,14 +19,19 @@ dbt seed
 
 # Later use dbt build - Builds and tests your selected resources such as models, seeds, snapshots, and tests
 # dbt run --select m00m00.*
-dbt run --select stg_moo_participant # for a single model at a time
-dbt run --select stg_moo_condition # for a single model at a time
+dbt run --select stg_moo_participant2 
+# --vars '{"schema_name": "raw_data2", "table_name": "participants_M00M002", "csv_url": "https://github.com/include-dcc/M00M00_test_study/participants_M00M00.csv"}'
+# dbt run --select stg_moo_condition # for a single model at a time
 
 
 # dbt run --select fhir_modules.* 
-dbt run --select fhir_participant # for a single model at a time
-dbt run --select fhir_condition # for a single model at a time
+# dbt run --select ftd_consensus # for a single model at a time
+# dbt run --select ftd_consensus # for a single model at a time
 
 
 # dbt docs generate
 # dbt docs serve
+
+dbt run-operation print_database_stats --args '{"schema_name": "dbo_moo_data"}'
+# dbt run-operation import_csv --args '{"schema_name": "raw_data2", "table_name": "participants_M00M002", "csv_url": "https://github.com/include-dcc/M00M00_test_study/participants_M00M00.csv"}'
+# dbt run-operation  run_python_script --args '{"filepath": "../data/participantsM00M00.csv"}'
