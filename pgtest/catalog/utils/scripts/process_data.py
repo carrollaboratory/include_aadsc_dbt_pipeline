@@ -1,37 +1,20 @@
 
 import argparse
 import pandas as pd
-import requests
-from io import StringIO
 import os
 from jinja2 import Template
-import subprocess
-import re
 
 RAW_SCHEMA = 'dbo_raw_data'
 
 def read_csv(filepath):
-   
-    # Check if the filepath is a URL
-    if filepath.lower().startswith('http'):
-        print(f"Downloading CSV from URL: {filepath}")
-        response = requests.get(filepath)
-        if response.status_code == 200:
-            # Read CSV data from the response content
-            csv_data = StringIO(response.text)
-            df = pd.read_csv(csv_data)
-            print("CSV data loaded from URL.")
-        else:
-            raise Exception(f"Failed to download file. Status code: {response.status_code}")
-    
+
+    # If it's a local file path
+    if os.path.exists(filepath):
+        print(f"Reading CSV from local file: {filepath}")
+        df = pd.read_csv(filepath)
+        print("CSV data loaded from local file.")
     else:
-        # If it's a local file path
-        if os.path.exists(filepath):
-            print(f"Reading CSV from local file: {filepath}")
-            df = pd.read_csv(filepath)
-            print("CSV data loaded from local file.")
-        else:
-            raise Exception(f"Local file does not exist: {filepath}")
+        raise Exception(f"Local file does not exist: {filepath}")
 
     return df
 
@@ -109,27 +92,13 @@ def generate_new_table(imported_csv, table_name):
 
     print(f"Generated SQL:\n{sql_query}") 
 
-    try:
-        # subprocess.run(
-        #     ['dbt', 'run-operation', 'run_sql', '--args', f'{{"sql": "{sql_query.replace("\"", "\\\"")}"}}'],
-        #     check=True
-        # )
-        print("SUCCESS - Executed SQL")
-
-        print(f"Generated SQL:\n{names}") 
-    except subprocess.CalledProcessError as e:
-        print(f"Error executing DBT operation: {e}")
-    except Exception as ex:
-        print(f"An unexpected error occurred: {ex}")
-
 def copy_csv_into_new_table(imported_csv, filepath, table_name):
-
 
     # Get column metadata.
     column_defs, column_names = get_column_data(imported_csv)
     # Define the template for the INSERT INTO statement
     insert_template = """
-    //COPY {{schema}}.{{table_name}} ({{ columns }})
+    /COPY {{schema}}.{{table_name}} ({{ columns }})
     FROM '{{filepath}}'
     DELIMITER ',' 
     CSV HEADER;
