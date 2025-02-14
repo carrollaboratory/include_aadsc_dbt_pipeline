@@ -34,15 +34,21 @@ models:
     +schema: moo_data
     +materialized: view
     participant:
-      participants_m00m002:
+      raw_moo_participant:
         +schema: raw_data 
+        +materialized: table
+      stg_moo_participant:
     condition:
+      raw_moo_condition:
+        +schema: raw_data 
+        +materialized: table
+      stg_moo_condition:
 
-seeds:
-  m00m00:
-    +schema: raw_data
-    condition_m00m00:
-    participants_m00m00:
+# seeds:
+#   m00m00:
+#     +schema: raw_data
+#     condition_m00m00:
+#     participants_m00m00:
       
 
   

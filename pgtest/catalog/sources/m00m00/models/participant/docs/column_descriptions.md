@@ -5,3 +5,7 @@ in the m00m00 directory
  -->
 
 
+
+{% docs moo_participant_comp_key %}
+Composite key: study_code & participant_global_id
+{% enddocs %}

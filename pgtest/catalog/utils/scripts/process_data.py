@@ -1,10 +1,10 @@
-
 import argparse
 import pandas as pd
 import os
 from jinja2 import Template
+import subprocess
 
-RAW_SCHEMA = 'dbo_raw_data'
+RAW_SCHEMA = "dbo_raw_data"
 
 def read_csv(filepath):
 
@@ -90,7 +90,36 @@ def generate_new_table(imported_csv, table_name):
                                                        table_name=table_name,
                                                        schema=RAW_SCHEMA)
 
-    print(f"Generated SQL:\n{sql_query}") 
+    try:
+        subprocess.run(
+            [
+                "dbt",
+                "run-operation",
+                "run_sql",
+                "--args",
+                f'{{"sql": "{sql_query.replace("\"", "\\\"")}"}}',
+            ],
+            check=True,
+        )
+        print(f"Executed SQL:\n{sql_query}")
+
+        # Print sanity check
+        # TODO remove schema_name hardcode 
+        subprocess.run(
+            [
+                "dbt",
+                "run-operation",
+                "print_database_stats",
+                "--args",
+                '{"schema_name":"dbo_raw_data"}',
+            ],
+            check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing DBT operation: {e}")
+    except Exception as ex:
+        print(f"An unexpected error occurred: {ex}")
+
 
 def copy_csv_into_new_table(imported_csv, filepath, table_name):
 
@@ -98,7 +127,7 @@ def copy_csv_into_new_table(imported_csv, filepath, table_name):
     column_defs, column_names = get_column_data(imported_csv)
     # Define the template for the INSERT INTO statement
     insert_template = """
-    /COPY {{schema}}.{{table_name}} ({{ columns }})
+    \COPY {{schema}}.{{table_name}} ({{ columns }})
     FROM '{{filepath}}'
     DELIMITER ',' 
     CSV HEADER;
@@ -125,7 +154,7 @@ def main(filepath, table_name):
 
     sql_query = copy_csv_into_new_table(csv_df, filepath, table_name)
     print(f"copy this over '{sql_query}'")
-    
+
 
 if __name__ == "__main__":
 

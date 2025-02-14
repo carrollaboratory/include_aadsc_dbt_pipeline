@@ -1,10 +1,13 @@
-{{ config(materialized='table') }} --overwrites the config in dbt_project.yml No reason, just for kicks.
+{{ config(
+    materialized='table'
+) }} --overwrites the config in dbt_project.yml No reason, just for kicks.
+
 
 WITH source AS (
     SELECT
-        "Study Code" AS study_code,
-        "Participant Global ID" AS participant_global_id,
-        "Participant External ID" AS participant_external_id,
+        "Study Code" ::TEXT AS study_code,
+        "Participant Global ID" ::TEXT AS participant_global_id,
+        "Participant External ID" ::TEXT AS participant_external_id,
         "Family ID"::TEXT AS family_id,
         "Family Type"::TEXT AS family_type,
         "Father ID"::TEXT AS father_id,
@@ -20,27 +23,10 @@ WITH source AS (
         "First Patient Engagement Event"::TEXT AS first_engagement_event,
         "Outcomes Vital Status"::TEXT AS vital_status,
         "Age at Last Vital Status"::INTEGER AS age_last_vital_status
-    FROM {{ ref('stg_moo_participant') }}
+    FROM {{ ref('raw_moo_participant') }}
 )
 
 SELECT
-    ROW_NUMBER() OVER (ORDER BY study_code) + 1000000 AS ftd_id,
-    study_code,
-    participant_global_id,
-    participant_external_id,
-    family_id,
-    family_type,
-    father_id,
-    mother_id,
-    sibling_id,
-    other_family_member_id,
-    family_relationship,
-    sex,
-    race,
-    ethnicity,
-    down_syndrome_status,
-    age_first_engagement,
-    first_engagement_event,
-    vital_status,
-    age_last_vital_status
+    *
+    ,CONCAT(study_code, '-', participant_global_id) AS ftd_key 
 FROM source
