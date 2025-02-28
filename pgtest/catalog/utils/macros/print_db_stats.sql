@@ -9,11 +9,9 @@
         WHERE table_schema = '{{ schema_name }}'
         ORDER BY estimated_rows DESC;
     {% endset %}
-
     {% set results = run_query(query) %}
-
     {% if execute %}
-        {{ log("Database Stats for Schema: " ~ schema_name, info=True) }}
+        {{ log("DATABASE STATS FOR SCHEMA: " ~ schema_name) }}
         {% for row in results %}
             {{ log("Table: " ~ row['table_name'] ~ " | Size: " ~ row['table_size'] ~ " | Rows: " ~ row['estimated_rows'], info=True) }}
         {% endfor %}

@@ -5,6 +5,9 @@ from jinja2 import Template
 import subprocess
 
 RAW_SCHEMA = "dbo_raw_data"
+DB_HOST = "localhost"
+DB_USER = "gutmanb"
+DB_NAME = "default_db"
 
 def read_csv(filepath):
 
@@ -42,7 +45,7 @@ def get_column_data(imported_csv):
 
         dtype = imported_csv[column].dtype
 
-         # Map pandas dtype to PostgreSQL types
+        # Map pandas dtype to PostgreSQL types
         if dtype == 'object':
             sql_type = "TEXT"
         elif dtype == 'int64':
@@ -58,8 +61,29 @@ def get_column_data(imported_csv):
 
         column_definitions.append(f"\"{original_name}\" {sql_type} ")
 
-
     return column_definitions, original_names
+
+
+def check_db_status():
+    # Print sanity check
+    # TODO remove schema_name hardcode
+    try:
+        print(f"dbo_raw_data METADATA")
+        subprocess.run(
+            [
+                "dbt",
+                "run-operation",
+                "print_database_stats",
+                "--args",
+                '{"schema_name":"dbo_raw_data"}',
+            ],
+            check=True,
+        )
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing DBT operation: {e}")
+    except Exception as ex:
+        print(f"An unexpected error occurred: {ex}")
 
 
 def generate_new_table(imported_csv, table_name):
@@ -103,22 +127,12 @@ def generate_new_table(imported_csv, table_name):
         )
         print(f"Executed SQL:\n{sql_query}")
 
-        # Print sanity check
-        # TODO remove schema_name hardcode 
-        subprocess.run(
-            [
-                "dbt",
-                "run-operation",
-                "print_database_stats",
-                "--args",
-                '{"schema_name":"dbo_raw_data"}',
-            ],
-            check=True,
-        )
     except subprocess.CalledProcessError as e:
         print(f"Error executing DBT operation: {e}")
     except Exception as ex:
         print(f"An unexpected error occurred: {ex}")
+
+    check_db_status()
 
 
 def copy_csv_into_new_table(imported_csv, filepath, table_name):
@@ -126,12 +140,8 @@ def copy_csv_into_new_table(imported_csv, filepath, table_name):
     # Get column metadata.
     column_defs, column_names = get_column_data(imported_csv)
     # Define the template for the INSERT INTO statement
-    insert_template = """
-    \COPY {{schema}}.{{table_name}} ({{ columns }})
-    FROM '{{filepath}}'
-    DELIMITER ',' 
-    CSV HEADER;
-    ;
+    insert_template = r"""
+    \COPY {{schema}}.{{table_name}} ({{ columns }}) FROM '{{filepath}}' DELIMITER ',' CSV HEADER
     """
 
     # Render the SQL insert statement for each row
@@ -142,9 +152,21 @@ def copy_csv_into_new_table(imported_csv, filepath, table_name):
         filepath=filepath
     )
 
-    escaped_query = sql_query.replace('"', r'\"')
+    try:
+        process = subprocess.run(
+            ["psql", "-h", DB_HOST, "-U", DB_USER, "-d", DB_NAME],
+            input=sql_query,
+            text=True,
+            check=True,
+        )
 
-    return escaped_query
+        print(f"Executed SQL:\n{sql_query}")
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing DBT operation: {e}")
+    except Exception as ex:
+        print(f"An unexpected error occurred: {ex}")
+
 
 def main(filepath, table_name):
 
@@ -153,7 +175,6 @@ def main(filepath, table_name):
     generate_new_table(csv_df, table_name)
 
     sql_query = copy_csv_into_new_table(csv_df, filepath, table_name)
-    print(f"copy this over '{sql_query}'")
 
 
 if __name__ == "__main__":

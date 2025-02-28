@@ -1,4 +1,3 @@
-{{ config(materialized='table') }} --overwrites the config in dbt_project.yml No reason, just for kicks.
 
     WITH source AS (
         SELECT
@@ -22,9 +21,10 @@
             "Other Code" AS other_code,
             "Measure Value" AS measure_value,
             "Measure Unit" AS measure_unit
-    FROM {{ ref('raw_moo_condition') }}
+    FROM {{ ref('moo_raw_condition') }}
     )
 
     SELECT *
+        ,CONCAT(study_code, '-', participant_global_id) AS ftd_key 
     FROM source
 

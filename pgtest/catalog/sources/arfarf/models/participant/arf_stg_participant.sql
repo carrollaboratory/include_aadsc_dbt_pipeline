@@ -1,7 +1,3 @@
-{{ config(
-    materialized='table'
-) }} --overwrites the config in dbt_project.yml No reason, just for kicks.
-
 
 WITH source AS (
     SELECT
@@ -23,7 +19,7 @@ WITH source AS (
         "First Patient Engagement Event"::TEXT AS first_engagement_event,
         "Outcomes Vital Status"::TEXT AS vital_status,
         "Age at Last Vital Status"::INTEGER AS age_last_vital_status
-    FROM {{ ref('raw_moo_participant') }}
+    FROM {{ ref('arf_raw_participant') }}
 )
 
 SELECT

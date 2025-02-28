@@ -1,10 +1,9 @@
 version: 2
 
 models:
-  - name: moo_raw_condition
+  - name: arf_raw_condition
     description: |
-      '{{ doc("moo_raw_condition") }}'
-    materialized: table
+      '{{ doc("arf_raw_condition") }}'
     columns:
       - name: Study Code
         description: '{{ doc("study_code") }}'
@@ -73,10 +72,9 @@ models:
         description: "" 
         data_type: string
 
-  - name: moo_stg_condition
+  - name: arf_stg_condition
     description: |
-      '{{ doc("moo_stg_condition") }}'
-    materialized: table
+      '{{ doc("arf_stg_condition") }}'
     columns:
       - name: study_code
         description: '{{ doc("study_code") }}'

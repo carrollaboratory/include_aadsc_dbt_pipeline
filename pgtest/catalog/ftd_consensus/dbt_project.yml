@@ -13,15 +13,16 @@ clean-targets:
 
 models:
   ftd:
-    +schema: ftd_data
     +materialized: table
-    participant:
-    condition:
-    measurement:
-    event:
-
-
-
-      
-
-  
+    m00m00:
+      +schema: moo_ftd_data
+      moo_ftd_participant:
+      moo_ftd_condition:
+      moo_ftd_measurement:
+      moo_ftd_event:
+    arfarf:
+      +schema: arf_ftd_data
+      arf_ftd_participant:
+      arf_ftd_condition:
+      arf_ftd_measurement:
+      arf_ftd_event:

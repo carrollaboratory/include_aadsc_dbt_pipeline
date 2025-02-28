@@ -1,6 +1,7 @@
-name: 'm00m00'
+name: 'arfarf'
 version: '1.0.0'
 profile: 'pgtest'
+
 
 model-paths: ["models"]
 macro-paths: ["macros"]
@@ -11,15 +12,18 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  m00m00:
-    +schema: moo_data
+  arfarf:
+    +schema: arf_data
     +materialized: table
 
     participant:
-      moo_raw_participant:
-      moo_stg_participant:
-
+      arf_raw_participant:
+      arf_stg_participant:
+        
     condition:
-      moo_raw_condition:
-      moo_stg_condition:
+      arf_raw_condition:
+      arf_stg_condition:
 
+      
+
+  

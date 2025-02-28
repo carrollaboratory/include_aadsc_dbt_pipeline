@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: moo_raw_participant
-    description: '{{ doc("moo_raw_participant") }}'
+  - name: arf_raw_participant
+    description: '{{ doc("arf_raw_participant") }}'
     columns:
       - name: Study Code
         description: '{{ doc("study_code") }}'
@@ -89,9 +89,8 @@ models:
         description: ""
         data_type: integer
 
-  - name: moo_stg_participant
-    description: '{{ doc("moo_stg_participant") }}'
-    materialized: table
+  - name: arf_stg_participant
+    description: '{{ doc("arf_stg_participant") }}'
     columns:
       - name: study_code
         description: '{{ doc("study_code") }}'
