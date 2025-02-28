@@ -25,7 +25,7 @@ def read_file(filepath):
         raise ValueError(f"Unsupported file type: {file_ext}")
     
 def write_file(target_dir, filename, data):
-    """Creates a directory for the table and writes a YAML, SQL, or Markdown file based on the extension."""
+    """Creates a directory for the table and writes a YAML, SQL, BASH, or Markdown file based on the extension."""
     
     # Ensure the directory exists
     os.makedirs(target_dir, exist_ok=True)
@@ -39,8 +39,8 @@ def write_file(target_dir, filename, data):
     with open(output_file, "w", encoding="utf-8") as file:
         if file_extension == ".yml":
             yaml.dump(data, file, default_flow_style=False, sort_keys=False, indent=4)
-        elif file_extension in [".sql", ".md"]:
-            file.write(data)  # SQL and Markdown files are written as plain text
+        elif file_extension in [".sql", ".md", ".sh"]:
+            file.write(data)
         else:
             raise ValueError(f"Unsupported file type: {file_extension}")
 

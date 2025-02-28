@@ -6,7 +6,9 @@ import subprocess
 from jinja2 import Template
 
 from helpers.generate_source_model_docs import *
+from helpers.generate_model_run_script import *
 from helpers.general import *
+from helpers.common import *
 
 
 def validate_study_config(study_config):
@@ -59,7 +61,7 @@ def validate_study_config(study_config):
 
     print("Validation passed: Study configuration is valid.")
 
-def extract_table_schema(dd_path):
+def extract_table_schema(dd_path, type_mapping):
     """Extracts column definitions from the data dictionary CSV."""
     df = read_file(dd_path)
     column_definitions = []
@@ -68,14 +70,6 @@ def extract_table_schema(dd_path):
         column_name = row["variable_name"].strip()
         data_type = row["data_type"].strip().upper()
 
-        # Map common data types to PostgreSQL types
-        type_mapping = {
-            "string": "TEXT",
-            "integer": "INTEGER",
-            "float": "FLOAT",
-            "boolean": "BOOLEAN",
-            "datetime": "TIMESTAMP"
-        }
         sql_type = type_mapping.get(data_type, "TEXT")
         column_definitions.append(f'"{column_name}" {sql_type}')
 
@@ -83,7 +77,7 @@ def extract_table_schema(dd_path):
 
 def generate_new_table(schema, table_name, column_defs, db_name):
 
- # Define the template for the CREATE TABLE statement
+    # Define the template for the CREATE TABLE statement
     create_table_template = """
     CREATE SCHEMA IF NOT EXISTS {{schema}};
 
@@ -94,7 +88,6 @@ def generate_new_table(schema, table_name, column_defs, db_name):
     );
     """
 
-    # Render the SQL statement using Jinja2
     sql_query = Template(create_table_template).render(db_name=db_name,
                                                        columns=column_defs,
                                                        table_name=table_name,
@@ -143,27 +136,26 @@ def copy_csv_into_new_table(schema, table_name, csv_file, db_host, db_user, db_n
 def main(yaml_study_config):
     study_config = read_file(yaml_study_config)
 
-    # Move these to env vars or a common file
-    DB_HOST = "localhost"
-    DB_USER = "gutmanb"
-    DB_NAME = "default_db"
-
-    study_dir = f'data/{study_config['study_id']}' # Base directory
-    models_dir = f'{study_dir}/models' # Used for creating table dirs per data dictionary
-    outer_docs_dir = f'{study_dir}/docs' # Used for storing model level docs
+    gen_dir = f"data/{study_config['study_id']}" # Stores all generated docs for the new model
+    scripts_dir = f"{gen_dir}/scripts" # Stores the run scripts. These should be stored in the base project scripts dir.
+    sources_dir = f"{gen_dir}/sources/{study_config['study_id']}" # Base study model
+    models_dir = f"{sources_dir}/models" # Used for creating table dirs per data dictionary
+    outer_docs_dir = f"{sources_dir}/docs" # Used for storing model level docs
     # table specific docs dir created in generate_column_descriptions
+    ftd_dir = f"{gen_dir}/sources/{study_config['study_id']}" # Base study model
 
-    os.makedirs(study_dir, exist_ok=True)
-    os.makedirs(models_dir, exist_ok=True)
-    os.makedirs(outer_docs_dir, exist_ok=True)
+    dirs = [gen_dir, scripts_dir, sources_dir, models_dir, outer_docs_dir, ftd_dir]
+
+    for dir in dirs:
+        os.makedirs(dir, exist_ok=True)
 
     validate_study_config(study_config)
 
     schema = f"{study_config['study_id']}_raw_data"
 
-    # for table_id, table_info in study_config["data_dictionary"].items():
-    #     dd_path = table_info["table_details"]
-    #     column_definitions = extract_table_schema(dd_path)
+    for table_id, table_info in study_config["data_dictionary"].items():
+        dd_path = table_info["table_details"]
+        # column_definitions = extract_table_schema(dd_path, type_mapping)
         
     #     generate_new_table(schema, table_id, column_definitions, DB_NAME)
     #     print(f"Table {schema}.{table_id} created successfully.")
@@ -173,9 +165,10 @@ def main(yaml_study_config):
     #         copy_csv_into_new_table(schema, table_id, csv_file, DB_HOST, DB_USER, DB_NAME)
     #         print(f"Data from {csv_file} loaded into {schema}.{table_id}.")
 
-    for table_id, table_info in study_config["data_dictionary"].items():
-        # TODO: DB_NAME to env var,available to generate_source_model_docs and any other scripts
-        generate_model_docs(study_config, table_id, models_dir, outer_docs_dir, DB_NAME)
+        # TODO: DB_NAME and type mapping to common location/var
+        generate_model_docs(study_config, models_dir, outer_docs_dir, DB_NAME, type_mapping)
+
+    generate_dbt_run_script(study_config, scripts_dir)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Initialize DBT transformation for study data.")
