@@ -79,12 +79,13 @@ ORDER BY schemaname;
 --  from the utils dir, Clean out db by individual schema
  dbt run-operation delete_all_tables --args '{"schema_name": "dbo_moo_data"}'
  python scripts/process_data.py -f data/participants_M00M00.csv -t participants_m00m002 --ran it from utils
+ sh scripts/copy_data.sh -- to copy data
 ```
 
 # Notes 
 
 ## General
-* VSCode ext - 'Power User for dbt'
+* VSCode ext - 'Power User for dbt' HAS CONFLICTS WITH GIT LENS ext - recommended to deactivate if there is an issue.
 * dbt_project.yml file was erroring - vscode didn't see dbt installed.
 Ctrl + Shift + P > select python interpreter > set to response from 'which python' in the terminal
 
