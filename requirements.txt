@@ -1,2 +1,4 @@
 dbt-core
 dbt-postgres
+
+git+https://github.com/brendagutman/dbt-utils.git@main#egg=dbt_utils

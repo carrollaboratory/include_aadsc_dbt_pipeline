@@ -1,25 +1,22 @@
-name: 'm00m00'
-version: '1.0.0'
-profile: 'pgtest'
-
-model-paths: ["models"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
+name: m00m00
+version: 1.0.0
+profile: pgtest
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
 clean-targets:
-  - "target"
-  - "dbt_packages"
-
+- target
+- dbt_packages
 models:
-  m00m00:
-    +schema: moo_data
-    +materialized: table
-
-    participant:
-      moo_raw_participant:
-      moo_stg_participant:
-
-    condition:
-      moo_raw_condition:
-      moo_stg_condition:
-
+    m00m00:
+        +schema: m00m00_data
+        +materialized: table
+        participant:
+            m00m00_raw_participant: null
+            m00m00_stg_participant: null
+        condition:
+            m00m00_raw_condition: null
+            m00m00_stg_condition: null
