@@ -1,0 +1,195 @@
+version: 2
+models:
+- name: m00m00_ftd_participant
+  description: Model for m00m00_ftd_participant.
+  columns:
+  - name: ftd_key
+    description: '{{ doc("m00m00_ftd_participant_ftd_key") }}'
+    data_type: string
+  - name: study_code
+    description: '{{ doc("m00m00_ftd_participant_study_code") }}'
+    data_type: string
+  - name: participant_global_id
+    description: '{{ doc("m00m00_ftd_participant_participant_global_id") }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("m00m00_ftd_participant_participant_external_id") }}'
+    data_type: string
+  - name: family_id
+    description: '{{ doc("m00m00_ftd_participant_family_id") }}'
+    data_type: string
+  - name: family_type
+    description: '{{ doc("m00m00_ftd_participant_family_type") }}'
+    data_type: string
+  - name: father_id
+    description: '{{ doc("m00m00_ftd_participant_father_id") }}'
+    data_type: string
+  - name: mother_id
+    description: '{{ doc("m00m00_ftd_participant_mother_id") }}'
+    data_type: string
+  - name: sibling_id
+    description: '{{ doc("m00m00_ftd_participant_sibling_id") }}'
+    data_type: string
+  - name: other_family_member_id
+    description: '{{ doc("m00m00_ftd_participant_other_family_member_id") }}'
+    data_type: string
+  - name: family_relationship
+    description: '{{ doc("m00m00_ftd_participant_family_relationship") }}'
+    data_type: string
+  - name: sex
+    description: '{{ doc("m00m00_ftd_participant_sex") }}'
+    data_type: string
+  - name: race
+    description: '{{ doc("m00m00_ftd_participant_race") }}'
+    data_type: string
+  - name: ethnicity
+    description: '{{ doc("m00m00_ftd_participant_ethnicity") }}'
+    data_type: string
+- name: m00m00_ftd_condition
+  description: Model for m00m00_ftd_condition.
+  columns:
+  - name: ftd_key
+    description: '{{ doc("m00m00_ftd_condition_ftd_key") }}'
+    data_type: string
+  - name: down_syndrome_status
+    description: '{{ doc("m00m00_ftd_condition_down_syndrome_status") }}'
+    data_type: string
+  - name: age_at_first_patient_engagement
+    description: '{{ doc("m00m00_ftd_condition_age_at_first_patient_engagement") }}'
+    data_type: integer
+  - name: first_patient_engagement_event
+    description: '{{ doc("m00m00_ftd_condition_first_patient_engagement_event") }}'
+    data_type: string
+  - name: outcomes_vital_status
+    description: '{{ doc("m00m00_ftd_condition_outcomes_vital_status") }}'
+    data_type: string
+  - name: age_at_last_vital_status
+    description: '{{ doc("m00m00_ftd_condition_age_at_last_vital_status") }}'
+    data_type: integer
+  - name: study_code
+    description: '{{ doc("m00m00_ftd_condition_study_code") }}'
+    data_type: string
+  - name: participant_global_id
+    description: '{{ doc("m00m00_ftd_condition_participant_global_id") }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("m00m00_ftd_condition_participant_external_id") }}'
+    data_type: string
+  - name: event_id
+    description: '{{ doc("m00m00_ftd_condition_event_id") }}'
+    data_type: integer
+  - name: event_type
+    description: '{{ doc("m00m00_ftd_condition_event_type") }}'
+    data_type: string
+  - name: condition_or_measure_source_text
+    description: '{{ doc("m00m00_ftd_condition_condition_or_measure_source_text")
+      }}'
+    data_type: string
+  - name: age_at_condition_or_measure_observation
+    description: '{{ doc("m00m00_ftd_condition_age_at_condition_or_measure_observation")
+      }}'
+    data_type: integer
+  - name: condition_interpretation
+    description: '{{ doc("m00m00_ftd_condition_condition_interpretation") }}'
+    data_type: string
+  - name: condition_status
+    description: '{{ doc("m00m00_ftd_condition_condition_status") }}'
+    data_type: string
+  - name: condition_data_source
+    description: '{{ doc("m00m00_ftd_condition_condition_data_source") }}'
+    data_type: string
+  - name: hpo_label
+    description: '{{ doc("m00m00_ftd_condition_hpo_label") }}'
+    data_type: string
+  - name: hpo_code
+    description: '{{ doc("m00m00_ftd_condition_hpo_code") }}'
+    data_type: string
+  - name: mondo_label
+    description: '{{ doc("m00m00_ftd_condition_mondo_label") }}'
+    data_type: string
+  - name: mondo_code
+    description: '{{ doc("m00m00_ftd_condition_mondo_code") }}'
+    data_type: string
+  - name: maxo_label
+    description: '{{ doc("m00m00_ftd_condition_maxo_label") }}'
+    data_type: string
+  - name: maxo_code
+    description: '{{ doc("m00m00_ftd_condition_maxo_code") }}'
+    data_type: string
+  - name: other_label
+    description: '{{ doc("m00m00_ftd_condition_other_label") }}'
+    data_type: string
+  - name: other_code
+    description: '{{ doc("m00m00_ftd_condition_other_code") }}'
+    data_type: string
+  - name: measure_value
+    description: '{{ doc("m00m00_ftd_condition_measure_value") }}'
+    data_type: string
+  - name: measure_unit
+    description: '{{ doc("m00m00_ftd_condition_measure_unit") }}'
+    data_type: string
+- name: m00m00_ftd_event
+  description: Model for m00m00_ftd_event.
+  columns:
+  - name: ftd_key
+    description: '{{ doc("m00m00_ftd_event_ftd_key") }}'
+    data_type: string
+  - name: study_code
+    description: '{{ doc("m00m00_ftd_event_study_code") }}'
+    data_type: string
+  - name: participant_global_id
+    description: '{{ doc("m00m00_ftd_event_participant_global_id") }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("m00m00_ftd_event_participant_external_id") }}'
+    data_type: string
+  - name: age_at_first_patient_engagement
+    description: '{{ doc("m00m00_ftd_event_age_at_first_patient_engagement") }}'
+    data_type: integer
+  - name: first_patient_engagement_event
+    description: '{{ doc("m00m00_ftd_event_first_patient_engagement_event") }}'
+    data_type: string
+- name: m00m00_ftd_measurement
+  description: Model for m00m00_ftd_measurement.
+  columns:
+  - name: ftd_key
+    description: '{{ doc("m00m00_ftd_measurement_ftd_key") }}'
+    data_type: string
+  - name: study_code
+    description: '{{ doc("m00m00_ftd_measurement_study_code") }}'
+    data_type: string
+  - name: participant_global_id
+    description: '{{ doc("m00m00_ftd_measurement_participant_global_id") }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("m00m00_ftd_measurement_participant_external_id") }}'
+    data_type: string
+  - name: condition_or_measure_source_text
+    description: '{{ doc("m00m00_ftd_measurement_condition_or_measure_source_text")
+      }}'
+    data_type: string
+  - name: age_at_condition_or_measure_observation
+    description: '{{ doc("m00m00_ftd_measurement_age_at_condition_or_measure_observation")
+      }}'
+    data_type: integer
+  - name: condition_interpretation
+    description: '{{ doc("m00m00_ftd_measurement_condition_interpretation") }}'
+    data_type: string
+  - name: condition_status
+    description: '{{ doc("m00m00_ftd_measurement_condition_status") }}'
+    data_type: string
+  - name: condition_data_source
+    description: '{{ doc("m00m00_ftd_measurement_condition_data_source") }}'
+    data_type: string
+  - name: other_label
+    description: '{{ doc("m00m00_ftd_measurement_other_label") }}'
+    data_type: string
+  - name: other_code
+    description: '{{ doc("m00m00_ftd_measurement_other_code") }}'
+    data_type: string
+  - name: measure_value
+    description: '{{ doc("m00m00_ftd_measurement_measure_value") }}'
+    data_type: string
+  - name: measure_unit
+    description: '{{ doc("m00m00_ftd_measurement_measure_unit") }}'
+    data_type: string

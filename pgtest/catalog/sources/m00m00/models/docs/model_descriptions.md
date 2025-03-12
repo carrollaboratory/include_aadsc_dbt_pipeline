@@ -1,19 +1,19 @@
-### m00m00 Participant Models
+### Participant Models
 
-{% docs moo_raw_participant %}
-Model of the raw m00m00 participant data. Source: https://github.com/include-dcc/M00M00_test_study/blob/main/participant_M00M00.csv
+{% docs m00m00_raw_participant %}
+Model for m00m00_raw_participant.
 {% enddocs %}
 
-{% docs moo_stg_participant %}
-Model of the, partially transformed, m00m00 participant data.
+{% docs m00m00_stg_participant %}
+Model for m00m00_stg_participant.
 {% enddocs %}
 
-### m00m00 Condition Models
+### Condition Models
 
-{% docs moo_raw_condition %}
-Model of the raw m00m00 condition data. Source: https://github.com/include-dcc/M00M00_test_study/blob/main/condition_M00M00.csv
+{% docs m00m00_raw_condition %}
+Model for m00m00_raw_condition.
 {% enddocs %}
 
-{% docs moo_stg_condition %}
-Model of the, partially transformed, m00m00 condition data.
+{% docs m00m00_stg_condition %}
+Model for m00m00_stg_condition.
 {% enddocs %}

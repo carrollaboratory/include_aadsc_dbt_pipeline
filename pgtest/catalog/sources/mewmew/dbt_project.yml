@@ -1,4 +1,4 @@
-name: m00m00
+name: mewmew
 version: 1.0.0
 profile: pgtest
 model-paths:
@@ -11,19 +11,19 @@ clean-targets:
 - target
 - dbt_packages
 models:
-  +schema: m00m00_data
+  +schema: mewmew_data
   +materialized: table
   participant:
-    m00m00_raw_participant:
-      +schema: m00m00_data
+    mewmew_raw_participant:
+      +schema: mewmew_data
       +materialized: table
-    m00m00_stg_participant:
-      +schema: m00m00_data
+    mewmew_stg_participant:
+      +schema: mewmew_data
       +materialized: table
   condition:
-    m00m00_raw_condition:
-      +schema: m00m00_data
+    mewmew_raw_condition:
+      +schema: mewmew_data
       +materialized: table
-    m00m00_stg_condition:
-      +schema: m00m00_data
+    mewmew_stg_condition:
+      +schema: mewmew_data
       +materialized: table

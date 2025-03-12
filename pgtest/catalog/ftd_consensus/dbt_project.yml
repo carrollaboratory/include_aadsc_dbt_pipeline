@@ -1,28 +1,40 @@
-name: 'ftd'
-version: '1.0.0'
-
-
-profile: 'pgtest'
-
-model-paths: ["models"]
-macro-paths: ["macros"]
-
-clean-targets: 
-  - "target"
-  - "dbt_packages"
-
+name: ftd
+version: 1.0.0
+profile: pgtest
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
 models:
-  ftd:
+  ftd: null
+  m00m00:
+    +schema: m00m00_ftd_data
     +materialized: table
-    m00m00:
-      +schema: moo_ftd_data
-      moo_ftd_participant:
-      moo_ftd_condition:
-      moo_ftd_measurement:
-      moo_ftd_event:
-    arfarf:
-      +schema: arf_ftd_data
-      arf_ftd_participant:
-      arf_ftd_condition:
-      arf_ftd_measurement:
-      arf_ftd_event:
+    m00m00_ftd_participant:
+      +schema: m00m00_ftd_data
+      +materialized: table
+    m00m00_ftd_condition:
+      +schema: m00m00_ftd_data
+      +materialized: table
+    m00m00_ftd_event:
+      +schema: m00m00_ftd_data
+      +materialized: table
+    m00m00_ftd_measurement:
+      +schema: m00m00_ftd_data
+      +materialized: table
+  mewmew:
+    mewmew_ftd_participant:
+      +schema: mewmew_ftd_data
+      +materialized: table
+    mewmew_ftd_condition:
+      +schema: mewmew_ftd_data
+      +materialized: table
+    mewmew_ftd_event:
+      +schema: mewmew_ftd_data
+      +materialized: table
+    mewmew_ftd_measurement:
+      +schema: mewmew_ftd_data
+      +materialized: table

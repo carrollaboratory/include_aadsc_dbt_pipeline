@@ -1,1 +1,0 @@
-This README should define model expectations or at least where to find them.

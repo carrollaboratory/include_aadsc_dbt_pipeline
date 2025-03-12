@@ -4,13 +4,7 @@
     {% endif %}
 
     WITH src_condition AS (
-        SELECT
-            ftd_key,
-            study_code,
-            participant_global_id,
-            participant_external_id,
-            age_first_engagement,
-            first_engagement_event
+        SELECT *
         FROM {{ ref(source_table) }}
     )
 

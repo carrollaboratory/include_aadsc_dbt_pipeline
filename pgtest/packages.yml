@@ -5,6 +5,7 @@ packages:
   - local: "catalog/tgt_consensus_a"
   - local: "catalog/ftd_consensus"
   - local: "catalog/sources/m00m00"
-  - local: "catalog/sources/arfarf"
-
-
+  # - local: "catalog/sources/arfarf"
+  - local: "catalog/sources/mewmew"
+    
+  - local: "catalog/utils"
