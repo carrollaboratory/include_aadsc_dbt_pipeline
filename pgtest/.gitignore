@@ -1,6 +1,0 @@
-target/
-dbt_packages/
-logs/
-/dbt.env
-/package-lock.yml
-/profiles.yml
