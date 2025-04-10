@@ -1,6 +1,6 @@
 
 
-## Prerequisits:
+## Prerequisites:
 * Run everything from inside your project 'ftd_project' in this case.
 
 ## Requirements
