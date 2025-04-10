@@ -97,12 +97,21 @@ ORDER BY schemaname;
 -- There is a macro in the dbt project catalog/utils dir that will recursively delete tables from a schema. That command is with the dbt instructions.
 DROP TABLE pg_tables.{your_table_name};
 
+--Drops all tables in the schema
+DROP SCHEMA dbo_aecom_data CASCADE;
+
+-- To look at data
+--If in the terminal run `\x` to print in expanded view.
+SELECT * FROM schemaname.tablename LIMIT 50
+
  ```
 
 ## Notes
 Careful rerunning the generation script. if worried about overwriting, rename or stage your changes first.
 
 Run from inside project "ftd"
+
+
 
 ftd_transformations --> explain create
 
@@ -111,6 +120,8 @@ Study yml creation
    - table_details are file names if dd_src is csv, is synapse it will be a syn id
  - Double check, no duplicated tables manually
 
+ FTD study yml
+
 profiles.yml expectations for file format example in examples
 
 Everywhere there is a m00m00 in the generated docs, this should be replaced by the study_id
@@ -118,7 +129,12 @@ If not using the basic filenames in the study.yaml, These should also be replace
 
 File definitions - when referenced in the README
 
-Requirements - What is necessary for running the new project only. 
+Requirements - What is necessary for running the new project. 
+- Unnecessary imports/files/dirs in this repo that don't NEED to be carried over.
+  - Anything in the .gitignore. Don't accidentally push any data or secrets!
+  - dbt_pipeline/macros
+  - requirements.txt - Utils import
+  - dbt_pipeline/scripts/generate_model_docs + import_data
 
 Where the projects are run from need to have a dbt_project.yaml and the packages.yml for the complete pipeline. ATM, the outer dbt_project and packages.yml should be 
 updated to include new models and studies. 
@@ -131,4 +147,41 @@ If permission is denied -
 -  chmod +x scripts/process_new_study.py
 You can also run this to give permission to other run scripts when created 
 
+Data prerequisites 
+ - src {study}_study.yaml and associated datafiles in data/study
+ - ftd_study.yaml
 
+1. Run dbt clean and dbt deps in the terminal.
+ - ERROR 'some model doesn't have a dbt_project.yml' --> check the packages.yml, make sure the models are not defined there at this time. 
+2. Log into the db
+3. If the src data doesn't already exist in the pipeline database.
+- log into db
+- Import src data using ./scripts/import_data.p -s {study_id}
+- Ensure the data was imported
+- The import scripyt will not overwrite data if it already exists. If you have to recreate the table(incorrect src dd), or reinsert the data. The table must be deleted from the db. 
+  ```sql 
+DROP TABLE schema_name.table_name;
+```
+4. Run the dbt model generation script ./scripts/generate_model_docs.py
+After running this script some things will need to be updated to account for study specifics before running the dbt run models. There will most likely be extra model docs created.
+- Search the new docs for the presence of m00m00, this is the study_id placeholder. In most places it will be a 1 to 1 replacement, but not always. Ex tgt_consensus dbt_project.yml source_table var. That should contain the name of one of the source tables in the database. If this is not an existing table in the db, dbt will error.
+
+WARNING: Once you start making edits to files, and before running the doc generation script again, keep in mind that rerunning the generation, may or may not overwrite files.
+- .sql files will not be overwritten. To reginerate, delete the current file.
+- /docs files. These will not be overwritten.
+
+
+5. Work on the transformations.
+- Work on a single transformation at a time, and test the model with dbt before moving on to the next stage. Each src model will have to pass before moving on to ftd_consensus stage. ftd_consensus models will be pulling from multiples stg sources most likely and will need those passing models available. When you are done testing the source models, remember you'll have to import the ftd_consensus within the root dir's packages.yml. This will apply when you are ready to move on to test the tgt models.
+- You could test the sql by running dbt commands in the command line. Examples of run commands are in /scripts/examples/ex_run_commands.sh. Run dbt clean and dbt deps each time, before running dbt commands. Suggestion, edit 'ex_run_commands.sh' and run it with the commands you want to run while testing. Debugging tip: Running single model model commands will give better logging outputs when there are failures. When one model runs successfully, add the next model to the list of commands to run. Build up the run commands
+  - Rerunning the doc generation script on a 'bad' data dictionary may cause issues in docs/column_descriptions.md files. Suggestion, delete all data in the problem file, and rerun the generation. Remember the warning above, make sure you don't overwrite your work when running the generation script.
+
+
+- Passing models:
+  - Running each mo
+
+Common Development Errors:
+- Issues with /doc files
+  - These files are not overwritten with each generation of the models which is necessary. However, if data dictionaries are updated these files can start causing issues. Best practice would be to delete these files and regenerate them after all changes to data dictionaries have been made.
+- Regarding missing dbt_project.yml files
+  - Most likely due to incorrect models being imported in dbt_pipeline/packages.yml

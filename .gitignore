@@ -1,3 +1,27 @@
+# ignore all
+*
+
+
+# ignore exceptions
+!scripts
+!scripts/**/*
+
+!utils
+!utils/**/*
+
+!data
+!data/**/*
+
+!root_examples
+!root_examples/**/*
+
+!macros
+!macros/**/*
+
+!seeds
+
+!packages.yml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
