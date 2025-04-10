@@ -2,9 +2,9 @@ packages:
   - package: dbt-labs/dbt_utils
     version: 1.3.0
 
-  - local: "include/catalog/sources/aecom"
-  - local: "include/catalog/ftd_consensus"
-  # - local: "include/catalog/tgt_consensus_a"
+  - local: "m00m00/catalog/sources/m00m00"
+  # - local: "m00m00/catalog/ftd_consensus"
+  # - local: "m00m00/catalog/tgt_consensus_a"
 
 
 
