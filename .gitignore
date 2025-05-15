@@ -1,6 +1,5 @@
-
+package-lock.yml
 dbt_packages
-aecom
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

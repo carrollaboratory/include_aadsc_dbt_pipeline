@@ -1,0 +1,26 @@
+Participant ID,Study Code,dbGaP,DS Status,Gender,Ethnicity,Race,Exact Age,AHI,OI,ID,Axial,Saggital,Coronal,MRI Quality,Remarks
+AECOM005,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,21.5,35.2,35.2,5,O,O,X,"sag (OK), ax(OK)","T&A 2008, circ 1993, T-tubes"
+AECOM010,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,17.091666666666665,118.1,,10,X,X,X,"only CPAP MRI, t1 sag: 10cm CPAP, t1 ax: 10cm CPAP","T&A, PET 2011"
+AECOM011,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,17.461111111111112,7.7,7.7,11,O,O,O,"ax(OK), cor(OK), sag(OK)",T&A
+AECOM013,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,13.616666666666667,7.4,5.78,13,O,O,X,"ax(not enough slice for nasophrynx), ax T2(OK), sag(OK)","T&A, ear-tubes"
+AECOM014,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,16.544444444444444,8.5,8.2,14,O,O,O,"ax(OK), cor(OK), sag(OK)",PE tubes
+AECOM018,AECOM-DS,,DS,Male,Hispanic or Latino,White/ Caucasian,15.033333333333333,7.3,6.6,18,O,O,O,"ax(OK), cor(OK), sag(OK)",No T&A
+AECOM022,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,14.213888888888889,6.9,6.4,22,O,O,O,"ax T2(OK), ax T1(OK), cor(OK), sag(OK)","T&A, ear tubes"
+AECOM025,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,12.319444444444445,11.1,11.1,25,O,O,O,"ax(OK), cor(OK), sag(OK)","T&A,  sag(No pressure)"
+AECOM028,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,20.96388888888889,94.2,93.1,28,O,O,X,"cor(OK does not cover airway), sag(OK), ax(OK completely collapsed airway)",T&A
+AECOM032,AECOM-DS,,DS,Female,Not Hispanic or Latino,White/ Caucasian,21.933333333333334,22.1,22.0,32,O,O,O,"ax(OK), cor(OK), sag(OK)","T&A, ear tubes"
+AECOM033,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,16.641666666666666,22.1,21.3,33,O,O,X,"sag(OK), ax(OK), sag T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes"
+AECOM034,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,12.044444444444444,6.2,5.9,34,O,O,X,"sag (OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm))","T&A, ear tubes"
+AECOM036,AECOM-DS,,DS,Female,Not Hispanic or Latino,White/ Caucasian,13.108333333333333,51.8,51.8,36,O,X,X,"ax (OK), sag(poor)","T&A, ear tubes"
+AECOM038,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,16.444444444444443,9.8,9.4,38,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","Tonsillectomy, ASD, Sinus"
+AECOM040,AECOM-DS,,DS,Male,Hispanic or Latino,White/ Caucasian,12.322222222222223,22.1,19.7,40,X,X,X,"ax (OK, missing slices), cor(OK, missing slices), cor(OK, missing slices, need to know reformat), CPAP pressured IMG",No data
+AECOM043,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,12.652777777777779,23.8,23.8,43,X,X,X,missing slices each sequences,No data
+AECOM045,AECOM-DS,,DS,Female,Hispanic or Latino,White/ Caucasian,12.41388888888889,6.8,6.8,45,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes"
+AECOM046,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,12.436111111111112,15.2,13.8,46,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes"
+AECOM049,AECOM-DS,,DS,Female,Not Hispanic or Latino,White/ Caucasian,12.01388888888889,11.5,11.5,49,O,O,O,"cor(OK), sag(OK), ax T1(OK)",Adenoid only
+AECOM050,AECOM-DS,,DS,Female,Not Hispanic or Latino,White/ Caucasian,12.466666666666667,12.8,12.2,50,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes"
+AECOM051,AECOM-DS,,DS,Female,Not Hispanic or Latino,White/ Caucasian,13.347222222222221,7.9,7.9,51,O,X,O,"cor(OK), sag(poor),ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)",No T&A
+AECOM053,AECOM-DS,,DS,Male,Not Hispanic or Latino,Multiracial,13.241666666666667,13.4,11.8,53,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","PE tubes, Tympanoplasty, Mynngotomy"
+AECOM054,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,18.052777777777777,49.5,47.4,54,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes, Tympanostomy, Ventricular Septal Defect Closure"
+AECOM055,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,14.372222222222222,9.3,9.1,55,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A (2013), ear tubes"
+AECOM057,AECOM-DS,,DS,Male,Not Hispanic or Latino,White/ Caucasian,17.133333333333333,11.5,11.5,57,O,O,O,"cor(OK), sag(OK), ax T1(OK), ax T2(OK, spacing:6 cm, thickness:5cm)","T&A, ear tubes"

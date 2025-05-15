@@ -67,7 +67,7 @@ Ctrl + X # then follow the prompts.
   - If the data is imported correctly, You should be able to run the source models. 
     - `dbt clean`
     - `dbt deps`
-    - `dbt run {study_id}_stg_{table_id}`
+    - `dbt run --select {study_id}_stg_{table_id}`
   - You can also run the generated pipeline run script from the root dir  `./{project_id}/scripts/run_{study_id).sh`. This should run the src models, but complain at the ftd and tgt model runs, because the sql in the models are most likely not runnable at this time. dbt does not often give helpful errors when more than one model is run at a time. Suggestion, while editing the pipeline use single commands like in previous step.  The run commands generated are mainly useful for the end product, full pipeline run. Examples of run commands for each stage are seen in `rootdir/scripts/examples/ex_run_commands.sh`. You could also edit this file to run the commands you want to while setting up the project for the first time. 
 
 ### Reminder

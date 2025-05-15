@@ -1,0 +1,29 @@
+name: aecom
+version: 1.0.0
+profile: include
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+clean-targets:
+- target
+- dbt_packages
+models:
+  +schema: aecom_data
+  +materialized: table
+  combined:
+    aecom_src_combined:
+      +schema: aecom_data
+      +materialized: table
+    aecom_stg_combined:
+      +schema: aecom_data
+      +materialized: table
+  study:
+    aecom_src_study:
+      +schema: aecom_data
+      +materialized: table
+    aecom_stg_study:
+      +schema: aecom_data
+      +materialized: table

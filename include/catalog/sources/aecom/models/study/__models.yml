@@ -1,0 +1,131 @@
+version: 2
+models:
+- name: aecom_src_study
+  description: Model for aecom_src_study.
+  columns:
+  - name: study_code
+    description: '{{ doc("aecom_src_study_study_code") }}'
+    data_type: string
+  - name: study_title
+    description: '{{ doc("aecom_src_study_study_title") }}'
+    data_type: string
+  - name: program
+    description: '{{ doc("aecom_src_study_program") }}'
+    data_type: string
+  - name: study_description
+    description: '{{ doc("aecom_src_study_study_description") }}'
+    data_type: string
+  - name: principal_investigator_name
+    description: '{{ doc("aecom_src_study_principal_investigator_name") }}'
+    data_type: string
+  - name: study_contact_name
+    description: '{{ doc("aecom_src_study_study_contact_name") }}'
+    data_type: string
+  - name: study_contact_institution
+    description: '{{ doc("aecom_src_study_study_contact_institution") }}'
+    data_type: string
+  - name: study_contact_email
+    description: '{{ doc("aecom_src_study_study_contact_email") }}'
+    data_type: string
+  - name: vbr_email
+    description: '{{ doc("aecom_src_study_vbr_email") }}'
+    data_type: string
+  - name: vbr_url
+    description: '{{ doc("aecom_src_study_vbr_url") }}'
+    data_type: string
+  - name: vbr_readme
+    description: '{{ doc("aecom_src_study_vbr_readme") }}'
+    data_type: string
+  - name: research_domain
+    description: '{{ doc("aecom_src_study_research_domain") }}'
+    data_type: enumeration
+  - name: participant_lifespan_stage
+    description: '{{ doc("aecom_src_study_participant_lifespan_stage") }}'
+    data_type: enumeration
+  - name: selection_criteria
+    description: '{{ doc("aecom_src_study_selection_criteria") }}'
+    data_type: string
+  - name: study_design
+    description: '{{ doc("aecom_src_study_study_design") }}'
+    data_type: enumeration
+  - name: clinical_data_source_type
+    description: '{{ doc("aecom_src_study_clinical_data_source_type") }}'
+    data_type: enumeration
+  - name: data_category
+    description: '{{ doc("aecom_src_study_data_category") }}'
+    data_type: enumeration
+  - name: study_website
+    description: '{{ doc("aecom_src_study_study_website") }}'
+    data_type: string
+  - name: dbgap
+    description: '{{ doc("aecom_src_study_dbgap") }}'
+    data_type: string
+  - name: publication
+    description: '{{ doc("aecom_src_study_publication") }}'
+    data_type: string
+  - name: expected_number_of_participants
+    description: '{{ doc("aecom_src_study_expected_number_of_participants") }}'
+    data_type: int
+  - name: guid_type
+    description: '{{ doc("aecom_src_study_guid_type") }}'
+    data_type: enumeration
+  - name: guid_mapped
+    description: '{{ doc("aecom_src_study_guid_mapped") }}'
+    data_type: string
+  - name: acknowledgments
+    description: '{{ doc("aecom_src_study_acknowledgments") }}'
+    data_type: string
+  - name: citation_statement
+    description: '{{ doc("aecom_src_study_citation_statement") }}'
+    data_type: string
+- name: aecom_stg_study
+  description: Model for aecom_stg_study.
+  columns:
+  - name: Participant ID
+    description: '{{ doc("aecom_stg_study_participant_id") }}'
+    data_type: null
+  - name: Study Code
+    description: '{{ doc("aecom_stg_study_study_code") }}'
+    data_type: null
+  - name: dbGaP
+    description: '{{ doc("aecom_stg_study_dbgap") }}'
+    data_type: null
+  - name: DS Status
+    description: '{{ doc("aecom_stg_study_ds_status") }}'
+    data_type: null
+  - name: Gender
+    description: '{{ doc("aecom_stg_study_gender") }}'
+    data_type: null
+  - name: Ethnicity
+    description: '{{ doc("aecom_stg_study_ethnicity") }}'
+    data_type: null
+  - name: Race
+    description: '{{ doc("aecom_stg_study_race") }}'
+    data_type: null
+  - name: Exact Age
+    description: '{{ doc("aecom_stg_study_exact_age") }}'
+    data_type: null
+  - name: AHI
+    description: '{{ doc("aecom_stg_study_ahi") }}'
+    data_type: null
+  - name: OI
+    description: '{{ doc("aecom_stg_study_oi") }}'
+    data_type: null
+  - name: ID
+    description: '{{ doc("aecom_stg_study_id") }}'
+    data_type: null
+  - name: Axial
+    description: '{{ doc("aecom_stg_study_axial") }}'
+    data_type: null
+  - name: Saggital
+    description: '{{ doc("aecom_stg_study_saggital") }}'
+    data_type: null
+  - name: Coronal
+    description: '{{ doc("aecom_stg_study_coronal") }}'
+    data_type: null
+  - name: MRI Quality
+    description: '{{ doc("aecom_stg_study_mri_quality") }}'
+    data_type: null
+  - name: Remarks
+    description: '{{ doc("aecom_stg_study_remarks") }}'
+    data_type: null

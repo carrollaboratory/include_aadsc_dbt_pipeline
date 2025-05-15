@@ -3,9 +3,9 @@ packages:
     version: 1.3.0
 
   # Test data imports 
-  # - local: "include/catalog/sources/m00m00"
-  # - local: "include/catalog/ftd_consensus"
-  # - local: "include/catalog/tgt_consensus_a"
+  - local: "test_project/catalog/sources/gregor_test_study"
+  # - local: "test_project/catalog/ftd_consensus"
+  # - local: "test_project/catalog/tgt_consensus_a"
 
 
 

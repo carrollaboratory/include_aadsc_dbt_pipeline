@@ -1,0 +1,104 @@
+version: 2
+models:
+- name: aecom_src_combined
+  description: Model for aecom_src_combined.
+  columns:
+  - name: Participant ID
+    description: '{{ doc("aecom_src_combined_participant_id") }}'
+    data_type: null
+  - name: Study Code
+    description: '{{ doc("aecom_src_combined_study_code") }}'
+    data_type: null
+  - name: dbGaP
+    description: '{{ doc("aecom_src_combined_dbgap") }}'
+    data_type: null
+  - name: DS Status
+    description: '{{ doc("aecom_src_combined_ds_status") }}'
+    data_type: null
+  - name: Gender
+    description: '{{ doc("aecom_src_combined_gender") }}'
+    data_type: null
+  - name: Ethnicity
+    description: '{{ doc("aecom_src_combined_ethnicity") }}'
+    data_type: null
+  - name: Race
+    description: '{{ doc("aecom_src_combined_race") }}'
+    data_type: null
+  - name: Exact Age
+    description: '{{ doc("aecom_src_combined_exact_age") }}'
+    data_type: null
+  - name: AHI
+    description: '{{ doc("aecom_src_combined_ahi") }}'
+    data_type: null
+  - name: OI
+    description: '{{ doc("aecom_src_combined_oi") }}'
+    data_type: null
+  - name: ID
+    description: '{{ doc("aecom_src_combined_id") }}'
+    data_type: null
+  - name: Axial
+    description: '{{ doc("aecom_src_combined_axial") }}'
+    data_type: null
+  - name: Saggital
+    description: '{{ doc("aecom_src_combined_saggital") }}'
+    data_type: null
+  - name: Coronal
+    description: '{{ doc("aecom_src_combined_coronal") }}'
+    data_type: null
+  - name: MRI Quality
+    description: '{{ doc("aecom_src_combined_mri_quality") }}'
+    data_type: null
+  - name: Remarks
+    description: '{{ doc("aecom_src_combined_remarks") }}'
+    data_type: null
+- name: aecom_stg_combined
+  description: Model for aecom_stg_combined.
+  columns:
+  - name: Participant ID
+    description: '{{ doc("aecom_stg_combined_participant_id") }}'
+    data_type: null
+  - name: Study Code
+    description: '{{ doc("aecom_stg_combined_study_code") }}'
+    data_type: null
+  - name: dbGaP
+    description: '{{ doc("aecom_stg_combined_dbgap") }}'
+    data_type: null
+  - name: DS Status
+    description: '{{ doc("aecom_stg_combined_ds_status") }}'
+    data_type: null
+  - name: Gender
+    description: '{{ doc("aecom_stg_combined_gender") }}'
+    data_type: null
+  - name: Ethnicity
+    description: '{{ doc("aecom_stg_combined_ethnicity") }}'
+    data_type: null
+  - name: Race
+    description: '{{ doc("aecom_stg_combined_race") }}'
+    data_type: null
+  - name: Exact Age
+    description: '{{ doc("aecom_stg_combined_exact_age") }}'
+    data_type: null
+  - name: AHI
+    description: '{{ doc("aecom_stg_combined_ahi") }}'
+    data_type: null
+  - name: OI
+    description: '{{ doc("aecom_stg_combined_oi") }}'
+    data_type: null
+  - name: ID
+    description: '{{ doc("aecom_stg_combined_id") }}'
+    data_type: null
+  - name: Axial
+    description: '{{ doc("aecom_stg_combined_axial") }}'
+    data_type: null
+  - name: Saggital
+    description: '{{ doc("aecom_stg_combined_saggital") }}'
+    data_type: null
+  - name: Coronal
+    description: '{{ doc("aecom_stg_combined_coronal") }}'
+    data_type: null
+  - name: MRI Quality
+    description: '{{ doc("aecom_stg_combined_mri_quality") }}'
+    data_type: null
+  - name: Remarks
+    description: '{{ doc("aecom_stg_combined_remarks") }}'
+    data_type: null

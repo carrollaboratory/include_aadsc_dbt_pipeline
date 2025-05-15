@@ -1,0 +1,21 @@
+[sqlfluff]
+templater = dbt
+# dbt templating does not keep trailing new lines (L009)
+exclude_rules = L033,L031,L016,L037,L042,L027,L035,L034,L029,L048
+dialect = postgres
+verbose = 1
+
+[sqlfluff:templater:dbt]
+project_dir = .
+# TODO: change this to be the profile set in dbt_project.yml
+profile = include-dbt-kids-first
+target = dev
+
+[sqlfluff:indentation]
+tab_space_size = 2
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
