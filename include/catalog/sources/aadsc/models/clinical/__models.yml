@@ -1,0 +1,657 @@
+version: 2
+models:
+- name: aadsc_stg_clinical
+  description: Model for aadsc_stg_clinical.
+  columns:
+  - name: biometric_variables
+    description: '{{ doc("aadsc_stg_clinical_biometric_variables") }}'
+    data_type: .nan
+  - name: age_at_last_encounter
+    description: '{{ doc("aadsc_stg_clinical_age_at_last_encounter") }}'
+    data_type: .nan
+  - name: sex
+    description: '{{ doc("aadsc_stg_clinical_sex") }}'
+    data_type: .nan
+  - name: race
+    description: '{{ doc("aadsc_stg_clinical_race") }}'
+    data_type: .nan
+  - name: ethnicity
+    description: '{{ doc("aadsc_stg_clinical_ethnicity") }}'
+    data_type: .nan
+  - name: date_of_extraction
+    description: '{{ doc("aadsc_stg_clinical_date_of_extraction") }}'
+    data_type: .nan
+  - name: bmi
+    description: '{{ doc("aadsc_stg_clinical_bmi") }}'
+    data_type: .nan
+  - name: height_at_last_encounter
+    description: '{{ doc("aadsc_stg_clinical_height_at_last_encounter") }}'
+    data_type: .nan
+  - name: weight_at_last_encounter
+    description: '{{ doc("aadsc_stg_clinical_weight_at_last_encounter") }}'
+    data_type: .nan
+  - name: other_bacterial_intestinal_infections__respiratory_tuberculosis
+    description: '{{ doc("aadsc_stg_clinical_other_bacterial_intestinal_infections__respiratory_tuberculosis")
+      }}'
+    data_type: .nan
+  - name: infection_c_diff_status
+    description: '{{ doc("aadsc_stg_clinical_infection_c_diff_status") }}'
+    data_type: .nan
+  - name: infection_tb_status
+    description: '{{ doc("aadsc_stg_clinical_infection_tb_status") }}'
+    data_type: .nan
+  - name: zoster_[herpes_zoster]__dermatophytosis
+    description: '{{ doc("aadsc_stg_clinical_zoster_[herpes_zoster]__dermatophytosis")
+      }}'
+    data_type: .nan
+  - name: infection_zoster_status
+    description: '{{ doc("aadsc_stg_clinical_infection_zoster_status") }}'
+    data_type: .nan
+  - name: skin_athlete_status
+    description: '{{ doc("aadsc_stg_clinical_skin_athlete_status") }}'
+    data_type: .nan
+  - name: tinea_barbae_and_tinea_capitis
+    description: '{{ doc("aadsc_stg_clinical_tinea_barbae_and_tinea_capitis") }}'
+    data_type: .nan
+  - name: tinea_cruris
+    description: '{{ doc("aadsc_stg_clinical_tinea_cruris") }}'
+    data_type: .nan
+  - name: onychomycosis
+    description: '{{ doc("aadsc_stg_clinical_onychomycosis") }}'
+    data_type: .nan
+  - name: neoplasms
+    description: '{{ doc("aadsc_stg_clinical_neoplasms") }}'
+    data_type: .nan
+  - name: heme_amkl_status
+    description: '{{ doc("aadsc_stg_clinical_heme_amkl_status") }}'
+    data_type: .nan
+  - name: heme_aml_status
+    description: '{{ doc("aadsc_stg_clinical_heme_aml_status") }}'
+    data_type: .nan
+  - name: heme_b_all_status
+    description: '{{ doc("aadsc_stg_clinical_heme_b_all_status") }}'
+    data_type: .nan
+  - name: heme_other_specify
+    description: '{{ doc("aadsc_stg_clinical_heme_other_specify") }}'
+    data_type: .nan
+  - name: male_cancer_status
+    description: '{{ doc("aadsc_stg_clinical_male_cancer_status") }}'
+    data_type: .nan
+  - name: all_malignant_neoplamsm
+    description: '{{ doc("aadsc_stg_clinical_all_malignant_neoplamsm") }}'
+    data_type: .nan
+  - name: diseases_of_the_blood_and_blood-forming_organs_and_certain_disorders_involving_the_immune_mechanism
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_blood_and_blood-forming_organs_and_certain_disorders_involving_the_immune_mechanism")
+      }}'
+    data_type: .nan
+  - name: auto_hemol_anemia_status
+    description: '{{ doc("aadsc_stg_clinical_auto_hemol_anemia_status") }}'
+    data_type: .nan
+  - name: auto_neutropenia_status
+    description: '{{ doc("aadsc_stg_clinical_auto_neutropenia_status") }}'
+    data_type: .nan
+  - name: auto_sarcoidosis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_sarcoidosis_status") }}'
+    data_type: .nan
+  - name: auto_thrombo_purpura_status
+    description: '{{ doc("aadsc_stg_clinical_auto_thrombo_purpura_status") }}'
+    data_type: .nan
+  - name: heme_leuk_rxn_status
+    description: '{{ doc("aadsc_stg_clinical_heme_leuk_rxn_status") }}'
+    data_type: .nan
+  - name: heme_other_cancer_status
+    description: '{{ doc("aadsc_stg_clinical_heme_other_cancer_status") }}'
+    data_type: .nan
+  - name: heme_tmd_status
+    description: '{{ doc("aadsc_stg_clinical_heme_tmd_status") }}'
+    data_type: .nan
+  - name: lymph_anemia_status
+    description: '{{ doc("aadsc_stg_clinical_lymph_anemia_status") }}'
+    data_type: .nan
+  - name: endocrine__nutritional_and_metabolic_diseases
+    description: '{{ doc("aadsc_stg_clinical_endocrine__nutritional_and_metabolic_diseases")
+      }}'
+    data_type: .nan
+  - name: auto_graves_status
+    description: '{{ doc("aadsc_stg_clinical_auto_graves_status") }}'
+    data_type: .nan
+  - name: auto_hashimoto_status
+    description: '{{ doc("aadsc_stg_clinical_auto_hashimoto_status") }}'
+    data_type: .nan
+  - name: auto_t1_diabetes_status
+    description: '{{ doc("aadsc_stg_clinical_auto_t1_diabetes_status") }}'
+    data_type: .nan
+  - name: endo_diabetes_conditions
+    description: '{{ doc("aadsc_stg_clinical_endo_diabetes_conditions") }}'
+    data_type: .nan
+  - name: endo_graves_status
+    description: '{{ doc("aadsc_stg_clinical_endo_graves_status") }}'
+    data_type: .nan
+  - name: endo_hashimoto_status
+    description: '{{ doc("aadsc_stg_clinical_endo_hashimoto_status") }}'
+    data_type: .nan
+  - name: endo_hyperthyroid_status
+    description: '{{ doc("aadsc_stg_clinical_endo_hyperthyroid_status") }}'
+    data_type: .nan
+  - name: endo_hypothyroid_status
+    description: '{{ doc("aadsc_stg_clinical_endo_hypothyroid_status") }}'
+    data_type: .nan
+  - name: endo_other_specify
+    description: '{{ doc("aadsc_stg_clinical_endo_other_specify") }}'
+    data_type: .nan
+  - name: endo_t1_diabetes_status
+    description: '{{ doc("aadsc_stg_clinical_endo_t1_diabetes_status") }}'
+    data_type: .nan
+  - name: endo_t2_diabetes_status
+    description: '{{ doc("aadsc_stg_clinical_endo_t2_diabetes_status") }}'
+    data_type: .nan
+  - name: endo_thyroid_other_specify
+    description: '{{ doc("aadsc_stg_clinical_endo_thyroid_other_specify") }}'
+    data_type: .nan
+  - name: endo_vitaminb_status
+    description: '{{ doc("aadsc_stg_clinical_endo_vitaminb_status") }}'
+    data_type: .nan
+  - name: female_other_specify
+    description: '{{ doc("aadsc_stg_clinical_female_other_specify") }}'
+    data_type: .nan
+  - name: female_pcos_status
+    description: '{{ doc("aadsc_stg_clinical_female_pcos_status") }}'
+    data_type: .nan
+  - name: vitaminb12deficiency
+    description: '{{ doc("aadsc_stg_clinical_vitaminb12deficiency") }}'
+    data_type: .nan
+  - name: disorder_ofadrenalgland__unspecified
+    description: '{{ doc("aadsc_stg_clinical_disorder_ofadrenalgland__unspecified")
+      }}'
+    data_type: .nan
+  - name: vitamin_d_deficiency
+    description: '{{ doc("aadsc_stg_clinical_vitamin_d_deficiency") }}'
+    data_type: .nan
+  - name: overweight_and_obesity
+    description: '{{ doc("aadsc_stg_clinical_overweight_and_obesity") }}'
+    data_type: .nan
+  - name: mental__behavioral_and_neurodevelopmental_disorders
+    description: '{{ doc("aadsc_stg_clinical_mental__behavioral_and_neurodevelopmental_disorders")
+      }}'
+    data_type: .nan
+  - name: develop_expressive_status
+    description: '{{ doc("aadsc_stg_clinical_develop_expressive_status") }}'
+    data_type: .nan
+  - name: develop_mixed_status
+    description: '{{ doc("aadsc_stg_clinical_develop_mixed_status") }}'
+    data_type: .nan
+  - name: psych_add_adhd_status
+    description: '{{ doc("aadsc_stg_clinical_psych_add_adhd_status") }}'
+    data_type: .nan
+  - name: psych_anxiety_status
+    description: '{{ doc("aadsc_stg_clinical_psych_anxiety_status") }}'
+    data_type: .nan
+  - name: psych_autism_status
+    description: '{{ doc("aadsc_stg_clinical_psych_autism_status") }}'
+    data_type: .nan
+  - name: psych_bipolar_status
+    description: '{{ doc("aadsc_stg_clinical_psych_bipolar_status") }}'
+    data_type: .nan
+  - name: psych_depression_status
+    description: '{{ doc("aadsc_stg_clinical_psych_depression_status") }}'
+    data_type: .nan
+  - name: psych_ocd_status
+    description: '{{ doc("aadsc_stg_clinical_psych_ocd_status") }}'
+    data_type: .nan
+  - name: psych_other_specify
+    description: '{{ doc("aadsc_stg_clinical_psych_other_specify") }}'
+    data_type: .nan
+  - name: psych_ptsd_status
+    description: '{{ doc("aadsc_stg_clinical_psych_ptsd_status") }}'
+    data_type: .nan
+  - name: psychiatric_disorders
+    description: '{{ doc("aadsc_stg_clinical_psychiatric_disorders") }}'
+    data_type: .nan
+  - name: diseases_of_the_nervous_system
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_nervous_system") }}'
+    data_type: .nan
+  - name: auto_myositis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_myositis_status") }}'
+    data_type: .nan
+  - name: auto_rls_status
+    description: '{{ doc("aadsc_stg_clinical_auto_rls_status") }}'
+    data_type: .nan
+  - name: ent_osa_status
+    description: '{{ doc("aadsc_stg_clinical_ent_osa_status") }}'
+    data_type: .nan
+  - name: neuro_alz_status
+    description: '{{ doc("aadsc_stg_clinical_neuro_alz_status") }}'
+    data_type: .nan
+  - name: neuro_epilepsy_status
+    description: '{{ doc("aadsc_stg_clinical_neuro_epilepsy_status") }}'
+    data_type: .nan
+  - name: neuro_other_specify
+    description: '{{ doc("aadsc_stg_clinical_neuro_other_specify") }}'
+    data_type: .nan
+  - name: neuro_palsy_status
+    description: '{{ doc("aadsc_stg_clinical_neuro_palsy_status") }}'
+    data_type: .nan
+  - name: neuro_parkinson_status
+    description: '{{ doc("aadsc_stg_clinical_neuro_parkinson_status") }}'
+    data_type: .nan
+  - name: cervical_myelopathy
+    description: '{{ doc("aadsc_stg_clinical_cervical_myelopathy") }}'
+    data_type: .nan
+  - name: diseases_of_the_eye_and_adnexa
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_eye_and_adnexa") }}'
+    data_type: .nan
+  - name: auto_menieres_status
+    description: '{{ doc("aadsc_stg_clinical_auto_menieres_status") }}'
+    data_type: .nan
+  - name: ent_etd_status
+    description: '{{ doc("aadsc_stg_clinical_ent_etd_status") }}'
+    data_type: .nan
+  - name: ent_hearing_status
+    description: '{{ doc("aadsc_stg_clinical_ent_hearing_status") }}'
+    data_type: .nan
+  - name: eye_amblyopia
+    description: '{{ doc("aadsc_stg_clinical_eye_amblyopia") }}'
+    data_type: .nan
+  - name: eye_astigmatism
+    description: '{{ doc("aadsc_stg_clinical_eye_astigmatism") }}'
+    data_type: .nan
+  - name: eye_blind
+    description: '{{ doc("aadsc_stg_clinical_eye_blind") }}'
+    data_type: .nan
+  - name: eye_cataracts
+    description: '{{ doc("aadsc_stg_clinical_eye_cataracts") }}'
+    data_type: .nan
+  - name: eye_glaucoma
+    description: '{{ doc("aadsc_stg_clinical_eye_glaucoma") }}'
+    data_type: .nan
+  - name: eye_hyperopia
+    description: '{{ doc("aadsc_stg_clinical_eye_hyperopia") }}'
+    data_type: .nan
+  - name: eye_keratoconus
+    description: '{{ doc("aadsc_stg_clinical_eye_keratoconus") }}'
+    data_type: .nan
+  - name: eye_myopia
+    description: '{{ doc("aadsc_stg_clinical_eye_myopia") }}'
+    data_type: .nan
+  - name: eye_nystagmus
+    description: '{{ doc("aadsc_stg_clinical_eye_nystagmus") }}'
+    data_type: .nan
+  - name: eye_ptosis
+    description: '{{ doc("aadsc_stg_clinical_eye_ptosis") }}'
+    data_type: .nan
+  - name: eye_retina
+    description: '{{ doc("aadsc_stg_clinical_eye_retina") }}'
+    data_type: .nan
+  - name: eye_strabismus
+    description: '{{ doc("aadsc_stg_clinical_eye_strabismus") }}'
+    data_type: .nan
+  - name: infection_otitis_status
+    description: '{{ doc("aadsc_stg_clinical_infection_otitis_status") }}'
+    data_type: .nan
+  - name: cholesteatoma_of_external_ear
+    description: '{{ doc("aadsc_stg_clinical_cholesteatoma_of_external_ear") }}'
+    data_type: .nan
+  - name: impacted_cerumen
+    description: '{{ doc("aadsc_stg_clinical_impacted_cerumen") }}'
+    data_type: .nan
+  - name: unspecified_blepharitis_unspecified_eye__unspecified_eyelid
+    description: '{{ doc("aadsc_stg_clinical_unspecified_blepharitis_unspecified_eye__unspecified_eyelid")
+      }}'
+    data_type: .nan
+  - name: diseases_of_the_circulatory_system
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_circulatory_system")
+      }}'
+    data_type: .nan
+  - name: cardiac_conditions
+    description: '{{ doc("aadsc_stg_clinical_cardiac_conditions") }}'
+    data_type: .nan
+  - name: cardiac_cardiomyopathy_status
+    description: '{{ doc("aadsc_stg_clinical_cardiac_cardiomyopathy_status") }}'
+    data_type: .nan
+  - name: cardiac_congestive_status
+    description: '{{ doc("aadsc_stg_clinical_cardiac_congestive_status") }}'
+    data_type: .nan
+  - name: cardiac_hypertension_status
+    description: '{{ doc("aadsc_stg_clinical_cardiac_hypertension_status") }}'
+    data_type: .nan
+  - name: cardiac_mi_status
+    description: '{{ doc("aadsc_stg_clinical_cardiac_mi_status") }}'
+    data_type: .nan
+  - name: cardiac_other_specify
+    description: '{{ doc("aadsc_stg_clinical_cardiac_other_specify") }}'
+    data_type: .nan
+  - name: neuro_moya_status
+    description: '{{ doc("aadsc_stg_clinical_neuro_moya_status") }}'
+    data_type: .nan
+  - name: pulm_pulm_hypertension_status
+    description: '{{ doc("aadsc_stg_clinical_pulm_pulm_hypertension_status") }}'
+    data_type: .nan
+  - name: orthostatic_hypotension
+    description: '{{ doc("aadsc_stg_clinical_orthostatic_hypotension") }}'
+    data_type: .nan
+  - name: acute_myocardial_infarction
+    description: '{{ doc("aadsc_stg_clinical_acute_myocardial_infarction") }}'
+    data_type: .nan
+  - name: chronic_ischemic_heart_diseases
+    description: '{{ doc("aadsc_stg_clinical_chronic_ischemic_heart_diseases") }}'
+    data_type: .nan
+  - name: atherosclerotic_heart_disease_of_native_coronary_artery
+    description: '{{ doc("aadsc_stg_clinical_atherosclerotic_heart_disease_of_native_coronary_artery")
+      }}'
+    data_type: .nan
+  - name: cerebrovascular_diseases
+    description: '{{ doc("aadsc_stg_clinical_cerebrovascular_diseases") }}'
+    data_type: .nan
+  - name: diseases_of_the_respiratory_system
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_respiratory_system")
+      }}'
+    data_type: .nan
+  - name: ent_rhinitis_status
+    description: '{{ doc("aadsc_stg_clinical_ent_rhinitis_status") }}'
+    data_type: .nan
+  - name: infection_sinus_status
+    description: '{{ doc("aadsc_stg_clinical_infection_sinus_status") }}'
+    data_type: .nan
+  - name: pulm_asthma_status
+    description: '{{ doc("aadsc_stg_clinical_pulm_asthma_status") }}'
+    data_type: .nan
+  - name: pulm_other_specify
+    description: '{{ doc("aadsc_stg_clinical_pulm_other_specify") }}'
+    data_type: .nan
+  - name: pulm_rad_status
+    description: '{{ doc("aadsc_stg_clinical_pulm_rad_status") }}'
+    data_type: .nan
+  - name: allergic_rhinitis
+    description: '{{ doc("aadsc_stg_clinical_allergic_rhinitis") }}'
+    data_type: .nan
+  - name: acute_sinusitis
+    description: '{{ doc("aadsc_stg_clinical_acute_sinusitis") }}'
+    data_type: .nan
+  - name: acute_recurrent_sinusitis
+    description: '{{ doc("aadsc_stg_clinical_acute_recurrent_sinusitis") }}'
+    data_type: .nan
+  - name: chronic_cough
+    description: '{{ doc("aadsc_stg_clinical_chronic_cough") }}'
+    data_type: .nan
+  - name: acute_nasopharyngitis
+    description: '{{ doc("aadsc_stg_clinical_acute_nasopharyngitis") }}'
+    data_type: .nan
+  - name: chronic_nasopharyngitis
+    description: '{{ doc("aadsc_stg_clinical_chronic_nasopharyngitis") }}'
+    data_type: .nan
+  - name: acute_bronchitis
+    description: '{{ doc("aadsc_stg_clinical_acute_bronchitis") }}'
+    data_type: .nan
+  - name: diseases_of_the_digestive_system
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_digestive_system") }}'
+    data_type: .nan
+  - name: auto_celiac_status
+    description: '{{ doc("aadsc_stg_clinical_auto_celiac_status") }}'
+    data_type: .nan
+  - name: gi_celiac_status
+    description: '{{ doc("aadsc_stg_clinical_gi_celiac_status") }}'
+    data_type: .nan
+  - name: gi_diverticulitis_status
+    description: '{{ doc("aadsc_stg_clinical_gi_diverticulitis_status") }}'
+    data_type: .nan
+  - name: gi_gerd_status
+    description: '{{ doc("aadsc_stg_clinical_gi_gerd_status") }}'
+    data_type: .nan
+  - name: gi_hemorrhoids_status
+    description: '{{ doc("aadsc_stg_clinical_gi_hemorrhoids_status") }}'
+    data_type: .nan
+  - name: gi_ibs_status
+    description: '{{ doc("aadsc_stg_clinical_gi_ibs_status") }}'
+    data_type: .nan
+  - name: gi_other_specify
+    description: '{{ doc("aadsc_stg_clinical_gi_other_specify") }}'
+    data_type: .nan
+  - name: gi_peptic_ulcers_status
+    description: '{{ doc("aadsc_stg_clinical_gi_peptic_ulcers_status") }}'
+    data_type: .nan
+  - name: gi_pyloric_stenosis_status
+    description: '{{ doc("aadsc_stg_clinical_gi_pyloric_stenosis_status") }}'
+    data_type: .nan
+  - name: infection_periodontitis_status
+    description: '{{ doc("aadsc_stg_clinical_infection_periodontitis_status") }}'
+    data_type: .nan
+  - name: achalasia
+    description: '{{ doc("aadsc_stg_clinical_achalasia") }}'
+    data_type: .nan
+  - name: esophagitis
+    description: '{{ doc("aadsc_stg_clinical_esophagitis") }}'
+    data_type: .nan
+  - name: hernia
+    description: '{{ doc("aadsc_stg_clinical_hernia") }}'
+    data_type: .nan
+  - name: constipation
+    description: '{{ doc("aadsc_stg_clinical_constipation") }}'
+    data_type: .nan
+  - name: appendicitis
+    description: '{{ doc("aadsc_stg_clinical_appendicitis") }}'
+    data_type: .nan
+  - name: fatty_liver
+    description: '{{ doc("aadsc_stg_clinical_fatty_liver") }}'
+    data_type: .nan
+  - name: nonalcoholicsteatohepatitis
+    description: '{{ doc("aadsc_stg_clinical_nonalcoholicsteatohepatitis") }}'
+    data_type: .nan
+  - name: diseases_of_the_skin_and_subcutaneous_tissue
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_skin_and_subcutaneous_tissue")
+      }}'
+    data_type: .nan
+  - name: auto_alopecia_status
+    description: '{{ doc("aadsc_stg_clinical_auto_alopecia_status") }}'
+    data_type: .nan
+  - name: auto_atopic_status
+    description: '{{ doc("aadsc_stg_clinical_auto_atopic_status") }}'
+    data_type: .nan
+  - name: auto_herpetiformis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_herpetiformis_status") }}'
+    data_type: .nan
+  - name: auto_hidradenitis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_hidradenitis_status") }}'
+    data_type: .nan
+  - name: auto_planus_status
+    description: '{{ doc("aadsc_stg_clinical_auto_planus_status") }}'
+    data_type: .nan
+  - name: auto_psoriasis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_psoriasis_status") }}'
+    data_type: .nan
+  - name: auto_psoriatic_arth_status
+    description: '{{ doc("aadsc_stg_clinical_auto_psoriatic_arth_status") }}'
+    data_type: .nan
+  - name: auto_sclerosus_status
+    description: '{{ doc("aadsc_stg_clinical_auto_sclerosus_status") }}'
+    data_type: .nan
+  - name: infection_cellulitis_status
+    description: '{{ doc("aadsc_stg_clinical_infection_cellulitis_status") }}'
+    data_type: .nan
+  - name: infection_impetigo_status
+    description: '{{ doc("aadsc_stg_clinical_infection_impetigo_status") }}'
+    data_type: .nan
+  - name: skin_acne_age
+    description: '{{ doc("aadsc_stg_clinical_skin_acne_age") }}'
+    data_type: .nan
+  - name: skin_acne_status
+    description: '{{ doc("aadsc_stg_clinical_skin_acne_status") }}'
+    data_type: .nan
+  - name: skin_alopecia_age
+    description: '{{ doc("aadsc_stg_clinical_skin_alopecia_age") }}'
+    data_type: .nan
+  - name: skin_alopecia_status
+    description: '{{ doc("aadsc_stg_clinical_skin_alopecia_status") }}'
+    data_type: .nan
+  - name: skin_atopic_status
+    description: '{{ doc("aadsc_stg_clinical_skin_atopic_status") }}'
+    data_type: .nan
+  - name: skin_cellulitis_status
+    description: '{{ doc("aadsc_stg_clinical_skin_cellulitis_status") }}'
+    data_type: .nan
+  - name: skin_hidradenitis_status
+    description: '{{ doc("aadsc_stg_clinical_skin_hidradenitis_status") }}'
+    data_type: .nan
+  - name: skin_psoriasis_status
+    description: '{{ doc("aadsc_stg_clinical_skin_psoriasis_status") }}'
+    data_type: .nan
+  - name: skin_rosacea_status
+    description: '{{ doc("aadsc_stg_clinical_skin_rosacea_status") }}'
+    data_type: .nan
+  - name: skin_seborrheic_status
+    description: '{{ doc("aadsc_stg_clinical_skin_seborrheic_status") }}'
+    data_type: .nan
+  - name: xerosis_cutis_
+    description: '{{ doc("aadsc_stg_clinical_xerosis_cutis_") }}'
+    data_type: .nan
+  - name: change_in_skin_texture_
+    description: '{{ doc("aadsc_stg_clinical_change_in_skin_texture_") }}'
+    data_type: .nan
+  - name: follicular_disorder
+    description: '{{ doc("aadsc_stg_clinical_follicular_disorder") }}'
+    data_type: .nan
+  - name: diseases_of_the_musculoskeletal_system_and_connective_tissue
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_musculoskeletal_system_and_connective_tissue")
+      }}'
+    data_type: .nan
+  - name: auto_arthropathy_status
+    description: '{{ doc("aadsc_stg_clinical_auto_arthropathy_status") }}'
+    data_type: .nan
+  - name: auto_dermatomyositis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_dermatomyositis_status") }}'
+    data_type: .nan
+  - name: auto_kawasaki_status
+    description: '{{ doc("aadsc_stg_clinical_auto_kawasaki_status") }}'
+    data_type: .nan
+  - name: auto_rh_arthritis_status
+    description: '{{ doc("aadsc_stg_clinical_auto_rh_arthritis_status") }}'
+    data_type: .nan
+  - name: auto_sle_status
+    description: '{{ doc("aadsc_stg_clinical_auto_sle_status") }}'
+    data_type: .nan
+  - name: infection_gout_status
+    description: '{{ doc("aadsc_stg_clinical_infection_gout_status") }}'
+    data_type: .nan
+  - name: skel_arthritis_status
+    description: '{{ doc("aadsc_stg_clinical_skel_arthritis_status") }}'
+    data_type: .nan
+  - name: skel_osteoarthritis_status
+    description: '{{ doc("aadsc_stg_clinical_skel_osteoarthritis_status") }}'
+    data_type: .nan
+  - name: skel_osteoporosis_status
+    description: '{{ doc("aadsc_stg_clinical_skel_osteoporosis_status") }}'
+    data_type: .nan
+  - name: skel_scoliosis_status
+    description: '{{ doc("aadsc_stg_clinical_skel_scoliosis_status") }}'
+    data_type: .nan
+  - name: spondylosis
+    description: '{{ doc("aadsc_stg_clinical_spondylosis") }}'
+    data_type: .nan
+  - name: diseases_of_the_genitourinary_system
+    description: '{{ doc("aadsc_stg_clinical_diseases_of_the_genitourinary_system")
+      }}'
+    data_type: .nan
+  - name: infection_uti_status
+    description: '{{ doc("aadsc_stg_clinical_infection_uti_status") }}'
+    data_type: .nan
+  - name: male_phimosis_status
+    description: '{{ doc("aadsc_stg_clinical_male_phimosis_status") }}'
+    data_type: .nan
+  - name: urogen_hydroneph_status
+    description: '{{ doc("aadsc_stg_clinical_urogen_hydroneph_status") }}'
+    data_type: .nan
+  - name: urogen_kidney_dz_status
+    description: '{{ doc("aadsc_stg_clinical_urogen_kidney_dz_status") }}'
+    data_type: .nan
+  - name: urogen_other_specify
+    description: '{{ doc("aadsc_stg_clinical_urogen_other_specify") }}'
+    data_type: .nan
+  - name: urogen_reflux_status
+    description: '{{ doc("aadsc_stg_clinical_urogen_reflux_status") }}'
+    data_type: .nan
+  - name: acute_kidney_failure
+    description: '{{ doc("aadsc_stg_clinical_acute_kidney_failure") }}'
+    data_type: .nan
+  - name: chronic_kidney_disease
+    description: '{{ doc("aadsc_stg_clinical_chronic_kidney_disease") }}'
+    data_type: .nan
+  - name: urinary_incontinence
+    description: '{{ doc("aadsc_stg_clinical_urinary_incontinence") }}'
+    data_type: .nan
+  - name: urinary_retention
+    description: '{{ doc("aadsc_stg_clinical_urinary_retention") }}'
+    data_type: .nan
+  - name: nephrolithiasis_(kidney_stones)
+    description: '{{ doc("aadsc_stg_clinical_nephrolithiasis_(kidney_stones)") }}'
+    data_type: .nan
+  - name: metrorrhagia
+    description: '{{ doc("aadsc_stg_clinical_metrorrhagia") }}'
+    data_type: .nan
+  - name: dysmenorrhea
+    description: '{{ doc("aadsc_stg_clinical_dysmenorrhea") }}'
+    data_type: .nan
+  - name: certain_conditions_originating_in_the_perinatal_period
+    description: '{{ doc("aadsc_stg_clinical_certain_conditions_originating_in_the_perinatal_period")
+      }}'
+    data_type: .nan
+  - name: endo_congen_diabetes_status
+    description: '{{ doc("aadsc_stg_clinical_endo_congen_diabetes_status") }}'
+    data_type: .nan
+  - name: congenital_malformations__deformations_and_chromosomal_abnormalities
+    description: '{{ doc("aadsc_stg_clinical_congenital_malformations__deformations_and_chromosomal_abnormalities")
+      }}'
+    data_type: .nan
+  - name: cardiac_other_chd_specify
+    description: '{{ doc("aadsc_stg_clinical_cardiac_other_chd_specify") }}'
+    data_type: .nan
+  - name: cardiac_asd_age
+    description: '{{ doc("aadsc_stg_clinical_cardiac_asd_age") }}'
+    data_type: .nan
+  - name: cardiac_pda_age
+    description: '{{ doc("aadsc_stg_clinical_cardiac_pda_age") }}'
+    data_type: .nan
+  - name: cardiac_pfo_age
+    description: '{{ doc("aadsc_stg_clinical_cardiac_pfo_age") }}'
+    data_type: .nan
+  - name: cardiac_tof_age
+    description: '{{ doc("aadsc_stg_clinical_cardiac_tof_age") }}'
+    data_type: .nan
+  - name: cardiac_vsd_age
+    description: '{{ doc("aadsc_stg_clinical_cardiac_vsd_age") }}'
+    data_type: .nan
+  - name: ds_diagnosis
+    description: '{{ doc("aadsc_stg_clinical_ds_diagnosis") }}'
+    data_type: .nan
+  - name: ent_laryngo_status
+    description: '{{ doc("aadsc_stg_clinical_ent_laryngo_status") }}'
+    data_type: .nan
+  - name: gi_esophageal_atresia_status
+    description: '{{ doc("aadsc_stg_clinical_gi_esophageal_atresia_status") }}'
+    data_type: .nan
+  - name: gi_hirschsprung_status
+    description: '{{ doc("aadsc_stg_clinical_gi_hirschsprung_status") }}'
+    data_type: .nan
+  - name: male_hypospadias_status
+    description: '{{ doc("aadsc_stg_clinical_male_hypospadias_status") }}'
+    data_type: .nan
+  - name: male_testicles_status
+    description: '{{ doc("aadsc_stg_clinical_male_testicles_status") }}'
+    data_type: .nan
+  - name: urogen_agenesis_status
+    description: '{{ doc("aadsc_stg_clinical_urogen_agenesis_status") }}'
+    data_type: .nan
+  - name: urogen_kidney_status
+    description: '{{ doc("aadsc_stg_clinical_urogen_kidney_status") }}'
+    data_type: .nan
+  - name: other
+    description: '{{ doc("aadsc_stg_clinical_other") }}'
+    data_type: .nan
+  - name: dysphagia
+    description: '{{ doc("aadsc_stg_clinical_dysphagia") }}'
+    data_type: .nan
+  - name: abnormalities_of_gait_and_mobility
+    description: '{{ doc("aadsc_stg_clinical_abnormalities_of_gait_and_mobility")
+      }}'
+    data_type: .nan
+  - name: do_not_resuscitate_status
+    description: '{{ doc("aadsc_stg_clinical_do_not_resuscitate_status") }}'
+    data_type: .nan

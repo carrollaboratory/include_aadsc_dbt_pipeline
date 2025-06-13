@@ -1,5 +1,7 @@
 package-lock.yml
 dbt_packages
+.user.yml
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

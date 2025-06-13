@@ -1,0 +1,553 @@
+version: 2
+sources:
+- name: aadsc
+  schema: main
+  tables:
+  - name: chicoine_down_syndrome_extract
+    description: Source table for chicoine_down_syndrome_extract.
+    columns:
+    - name: Biometric Variables
+      description: '{{ doc("chicoine_down_syndrome_extract_biometric_variables") }}'
+    - name: Age at last encounter
+      description: '{{ doc("chicoine_down_syndrome_extract_age_at_last_encounter")
+        }}'
+    - name: Sex
+      description: '{{ doc("chicoine_down_syndrome_extract_sex") }}'
+    - name: Race
+      description: '{{ doc("chicoine_down_syndrome_extract_race") }}'
+    - name: Ethnicity
+      description: '{{ doc("chicoine_down_syndrome_extract_ethnicity") }}'
+    - name: Date of extraction
+      description: '{{ doc("chicoine_down_syndrome_extract_date_of_extraction") }}'
+    - name: BMI
+      description: '{{ doc("chicoine_down_syndrome_extract_bmi") }}'
+    - name: Height at last encounter
+      description: '{{ doc("chicoine_down_syndrome_extract_height_at_last_encounter")
+        }}'
+    - name: Weight at last encounter
+      description: '{{ doc("chicoine_down_syndrome_extract_weight_at_last_encounter")
+        }}'
+    - name: Other bacterial intestinal infections, Respiratory tuberculosis
+      description: '{{ doc("chicoine_down_syndrome_extract_other_bacterial_intestinal_infections__respiratory_tuberculosis")
+        }}'
+    - name: infection_c_diff_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_c_diff_status")
+        }}'
+    - name: infection_tb_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_tb_status") }}'
+    - name: Zoster [herpes zoster], Dermatophytosis
+      description: '{{ doc("chicoine_down_syndrome_extract_zoster_[herpes_zoster]__dermatophytosis")
+        }}'
+    - name: infection_zoster_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_zoster_status")
+        }}'
+    - name: skin_athlete_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_athlete_status") }}'
+    - name: Tinea barbae and tinea capitis
+      description: '{{ doc("chicoine_down_syndrome_extract_tinea_barbae_and_tinea_capitis")
+        }}'
+    - name: Tinea Cruris
+      description: '{{ doc("chicoine_down_syndrome_extract_tinea_cruris") }}'
+    - name: Onychomycosis
+      description: '{{ doc("chicoine_down_syndrome_extract_onychomycosis") }}'
+    - name: Neoplasms
+      description: '{{ doc("chicoine_down_syndrome_extract_neoplasms") }}'
+    - name: heme_amkl_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_amkl_status") }}'
+    - name: heme_aml_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_aml_status") }}'
+    - name: heme_b_all_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_b_all_status") }}'
+    - name: heme_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_other_specify") }}'
+    - name: male_cancer_status
+      description: '{{ doc("chicoine_down_syndrome_extract_male_cancer_status") }}'
+    - name: All malignant neoplamsm
+      description: '{{ doc("chicoine_down_syndrome_extract_all_malignant_neoplamsm")
+        }}'
+    - name: Diseases of the blood and blood-forming organs and certain disorders involving
+        the immune mechanism
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_blood_and_blood-forming_organs_and_certain_disorders_involving_the_immune_mechanism")
+        }}'
+    - name: auto_hemol_anemia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_hemol_anemia_status")
+        }}'
+    - name: auto_neutropenia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_neutropenia_status")
+        }}'
+    - name: auto_sarcoidosis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_sarcoidosis_status")
+        }}'
+    - name: auto_thrombo_purpura_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_thrombo_purpura_status")
+        }}'
+    - name: heme_leuk_rxn_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_leuk_rxn_status")
+        }}'
+    - name: heme_other_cancer_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_other_cancer_status")
+        }}'
+    - name: heme_tmd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_heme_tmd_status") }}'
+    - name: lymph_anemia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_lymph_anemia_status") }}'
+    - name: Endocrine, nutritional and metabolic diseases
+      description: '{{ doc("chicoine_down_syndrome_extract_endocrine__nutritional_and_metabolic_diseases")
+        }}'
+    - name: auto_graves_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_graves_status") }}'
+    - name: auto_hashimoto_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_hashimoto_status")
+        }}'
+    - name: auto_t1_diabetes_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_t1_diabetes_status")
+        }}'
+    - name: endo_diabetes_conditions
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_diabetes_conditions")
+        }}'
+    - name: endo_graves_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_graves_status") }}'
+    - name: endo_hashimoto_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_hashimoto_status")
+        }}'
+    - name: endo_hyperthyroid_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_hyperthyroid_status")
+        }}'
+    - name: endo_hypothyroid_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_hypothyroid_status")
+        }}'
+    - name: endo_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_other_specify") }}'
+    - name: endo_t1_diabetes_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_t1_diabetes_status")
+        }}'
+    - name: endo_t2_diabetes_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_t2_diabetes_status")
+        }}'
+    - name: endo_thyroid_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_thyroid_other_specify")
+        }}'
+    - name: endo_vitaminb_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_vitaminb_status")
+        }}'
+    - name: female_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_female_other_specify")
+        }}'
+    - name: female_pcos_status
+      description: '{{ doc("chicoine_down_syndrome_extract_female_pcos_status") }}'
+    - name: vitaminB12deficiency
+      description: '{{ doc("chicoine_down_syndrome_extract_vitaminb12deficiency")
+        }}'
+    - name: Disorder ofadrenalgland, unspecified
+      description: '{{ doc("chicoine_down_syndrome_extract_disorder_ofadrenalgland__unspecified")
+        }}'
+    - name: Vitamin D deficiency
+      description: '{{ doc("chicoine_down_syndrome_extract_vitamin_d_deficiency")
+        }}'
+    - name: Overweight and Obesity
+      description: '{{ doc("chicoine_down_syndrome_extract_overweight_and_obesity")
+        }}'
+    - name: Mental, Behavioral and Neurodevelopmental disorders
+      description: '{{ doc("chicoine_down_syndrome_extract_mental__behavioral_and_neurodevelopmental_disorders")
+        }}'
+    - name: develop_expressive_status
+      description: '{{ doc("chicoine_down_syndrome_extract_develop_expressive_status")
+        }}'
+    - name: develop_mixed_status
+      description: '{{ doc("chicoine_down_syndrome_extract_develop_mixed_status")
+        }}'
+    - name: psych_add_adhd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_add_adhd_status")
+        }}'
+    - name: psych_anxiety_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_anxiety_status")
+        }}'
+    - name: psych_autism_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_autism_status") }}'
+    - name: psych_bipolar_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_bipolar_status")
+        }}'
+    - name: psych_depression_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_depression_status")
+        }}'
+    - name: psych_ocd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_ocd_status") }}'
+    - name: psych_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_other_specify") }}'
+    - name: psych_ptsd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_psych_ptsd_status") }}'
+    - name: Psychiatric Disorders
+      description: '{{ doc("chicoine_down_syndrome_extract_psychiatric_disorders")
+        }}'
+    - name: Diseases of the nervous system
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_nervous_system")
+        }}'
+    - name: auto_myositis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_myositis_status")
+        }}'
+    - name: auto_rls_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_rls_status") }}'
+    - name: ent_osa_status
+      description: '{{ doc("chicoine_down_syndrome_extract_ent_osa_status") }}'
+    - name: neuro_alz_status
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_alz_status") }}'
+    - name: neuro_epilepsy_status
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_epilepsy_status")
+        }}'
+    - name: neuro_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_other_specify") }}'
+    - name: neuro_palsy_status
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_palsy_status") }}'
+    - name: neuro_parkinson_status
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_parkinson_status")
+        }}'
+    - name: Cervical Myelopathy
+      description: '{{ doc("chicoine_down_syndrome_extract_cervical_myelopathy") }}'
+    - name: Diseases of the eye and adnexa
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_eye_and_adnexa")
+        }}'
+    - name: auto_menieres_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_menieres_status")
+        }}'
+    - name: ent_etd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_ent_etd_status") }}'
+    - name: ent_hearing_status
+      description: '{{ doc("chicoine_down_syndrome_extract_ent_hearing_status") }}'
+    - name: eye_amblyopia
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_amblyopia") }}'
+    - name: eye_astigmatism
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_astigmatism") }}'
+    - name: eye_blind
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_blind") }}'
+    - name: eye_cataracts
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_cataracts") }}'
+    - name: eye_glaucoma
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_glaucoma") }}'
+    - name: eye_hyperopia
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_hyperopia") }}'
+    - name: eye_keratoconus
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_keratoconus") }}'
+    - name: eye_myopia
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_myopia") }}'
+    - name: eye_nystagmus
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_nystagmus") }}'
+    - name: eye_ptosis
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_ptosis") }}'
+    - name: eye_retina
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_retina") }}'
+    - name: eye_strabismus
+      description: '{{ doc("chicoine_down_syndrome_extract_eye_strabismus") }}'
+    - name: infection_otitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_otitis_status")
+        }}'
+    - name: cholesteatoma of external ear
+      description: '{{ doc("chicoine_down_syndrome_extract_cholesteatoma_of_external_ear")
+        }}'
+    - name: Impacted cerumen
+      description: '{{ doc("chicoine_down_syndrome_extract_impacted_cerumen") }}'
+    - name: Unspecified blepharitis unspecified eye, unspecified eyelid
+      description: '{{ doc("chicoine_down_syndrome_extract_unspecified_blepharitis_unspecified_eye__unspecified_eyelid")
+        }}'
+    - name: Diseases of the circulatory system
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_circulatory_system")
+        }}'
+    - name: cardiac_conditions
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_conditions") }}'
+    - name: cardiac_cardiomyopathy_status
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_cardiomyopathy_status")
+        }}'
+    - name: cardiac_congestive_status
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_congestive_status")
+        }}'
+    - name: cardiac_hypertension_status
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_hypertension_status")
+        }}'
+    - name: cardiac_mi_status
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_mi_status") }}'
+    - name: cardiac_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_other_specify")
+        }}'
+    - name: neuro_moya_status
+      description: '{{ doc("chicoine_down_syndrome_extract_neuro_moya_status") }}'
+    - name: pulm_pulm_hypertension_status
+      description: '{{ doc("chicoine_down_syndrome_extract_pulm_pulm_hypertension_status")
+        }}'
+    - name: orthostatic hypotension
+      description: '{{ doc("chicoine_down_syndrome_extract_orthostatic_hypotension")
+        }}'
+    - name: acute myocardial infarction
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_myocardial_infarction")
+        }}'
+    - name: chronic ischemic heart diseases
+      description: '{{ doc("chicoine_down_syndrome_extract_chronic_ischemic_heart_diseases")
+        }}'
+    - name: Atherosclerotic heart disease of native coronary artery
+      description: '{{ doc("chicoine_down_syndrome_extract_atherosclerotic_heart_disease_of_native_coronary_artery")
+        }}'
+    - name: Cerebrovascular diseases
+      description: '{{ doc("chicoine_down_syndrome_extract_cerebrovascular_diseases")
+        }}'
+    - name: Diseases of the respiratory system
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_respiratory_system")
+        }}'
+    - name: ent_rhinitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_ent_rhinitis_status") }}'
+    - name: infection_sinus_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_sinus_status")
+        }}'
+    - name: pulm_asthma_status
+      description: '{{ doc("chicoine_down_syndrome_extract_pulm_asthma_status") }}'
+    - name: pulm_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_pulm_other_specify") }}'
+    - name: pulm_rad_status
+      description: '{{ doc("chicoine_down_syndrome_extract_pulm_rad_status") }}'
+    - name: Allergic rhinitis
+      description: '{{ doc("chicoine_down_syndrome_extract_allergic_rhinitis") }}'
+    - name: Acute sinusitis
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_sinusitis") }}'
+    - name: Acute recurrent sinusitis
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_recurrent_sinusitis")
+        }}'
+    - name: Chronic cough
+      description: '{{ doc("chicoine_down_syndrome_extract_chronic_cough") }}'
+    - name: Acute nasopharyngitis
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_nasopharyngitis")
+        }}'
+    - name: Chronic nasopharyngitis
+      description: '{{ doc("chicoine_down_syndrome_extract_chronic_nasopharyngitis")
+        }}'
+    - name: Acute bronchitis
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_bronchitis") }}'
+    - name: Diseases of the digestive system
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_digestive_system")
+        }}'
+    - name: auto_celiac_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_celiac_status") }}'
+    - name: gi_celiac_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_celiac_status") }}'
+    - name: gi_diverticulitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_diverticulitis_status")
+        }}'
+    - name: gi_gerd_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_gerd_status") }}'
+    - name: gi_hemorrhoids_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_hemorrhoids_status")
+        }}'
+    - name: gi_ibs_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_ibs_status") }}'
+    - name: gi_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_other_specify") }}'
+    - name: gi_peptic_ulcers_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_peptic_ulcers_status")
+        }}'
+    - name: gi_pyloric_stenosis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_pyloric_stenosis_status")
+        }}'
+    - name: infection_periodontitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_periodontitis_status")
+        }}'
+    - name: Achalasia
+      description: '{{ doc("chicoine_down_syndrome_extract_achalasia") }}'
+    - name: Esophagitis
+      description: '{{ doc("chicoine_down_syndrome_extract_esophagitis") }}'
+    - name: Hernia
+      description: '{{ doc("chicoine_down_syndrome_extract_hernia") }}'
+    - name: Constipation
+      description: '{{ doc("chicoine_down_syndrome_extract_constipation") }}'
+    - name: Appendicitis
+      description: '{{ doc("chicoine_down_syndrome_extract_appendicitis") }}'
+    - name: Fatty liver
+      description: '{{ doc("chicoine_down_syndrome_extract_fatty_liver") }}'
+    - name: Nonalcoholicsteatohepatitis
+      description: '{{ doc("chicoine_down_syndrome_extract_nonalcoholicsteatohepatitis")
+        }}'
+    - name: Diseases of the skin and subcutaneous tissue
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_skin_and_subcutaneous_tissue")
+        }}'
+    - name: auto_alopecia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_alopecia_status")
+        }}'
+    - name: auto_atopic_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_atopic_status") }}'
+    - name: auto_herpetiformis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_herpetiformis_status")
+        }}'
+    - name: auto_hidradenitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_hidradenitis_status")
+        }}'
+    - name: auto_planus_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_planus_status") }}'
+    - name: auto_psoriasis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_psoriasis_status")
+        }}'
+    - name: auto_psoriatic_arth_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_psoriatic_arth_status")
+        }}'
+    - name: auto_sclerosus_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_sclerosus_status")
+        }}'
+    - name: infection_cellulitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_cellulitis_status")
+        }}'
+    - name: infection_impetigo_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_impetigo_status")
+        }}'
+    - name: skin_acne_age
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_acne_age") }}'
+    - name: skin_acne_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_acne_status") }}'
+    - name: skin_alopecia_age
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_alopecia_age") }}'
+    - name: skin_alopecia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_alopecia_status")
+        }}'
+    - name: skin_atopic_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_atopic_status") }}'
+    - name: skin_cellulitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_cellulitis_status")
+        }}'
+    - name: skin_hidradenitis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_hidradenitis_status")
+        }}'
+    - name: skin_psoriasis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_psoriasis_status")
+        }}'
+    - name: skin_rosacea_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_rosacea_status") }}'
+    - name: skin_seborrheic_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skin_seborrheic_status")
+        }}'
+    - name: 'Xerosis cutis '
+      description: '{{ doc("chicoine_down_syndrome_extract_xerosis_cutis_") }}'
+    - name: 'Change in skin texture '
+      description: '{{ doc("chicoine_down_syndrome_extract_change_in_skin_texture_")
+        }}'
+    - name: Follicular disorder
+      description: '{{ doc("chicoine_down_syndrome_extract_follicular_disorder") }}'
+    - name: Diseases of the musculoskeletal system and connective tissue
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_musculoskeletal_system_and_connective_tissue")
+        }}'
+    - name: auto_arthropathy_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_arthropathy_status")
+        }}'
+    - name: auto_dermatomyositis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_dermatomyositis_status")
+        }}'
+    - name: auto_kawasaki_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_kawasaki_status")
+        }}'
+    - name: auto_rh_arthritis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_rh_arthritis_status")
+        }}'
+    - name: auto_sle_status
+      description: '{{ doc("chicoine_down_syndrome_extract_auto_sle_status") }}'
+    - name: infection_gout_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_gout_status")
+        }}'
+    - name: skel_arthritis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skel_arthritis_status")
+        }}'
+    - name: skel_osteoarthritis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skel_osteoarthritis_status")
+        }}'
+    - name: skel_osteoporosis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skel_osteoporosis_status")
+        }}'
+    - name: skel_scoliosis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_skel_scoliosis_status")
+        }}'
+    - name: Spondylosis
+      description: '{{ doc("chicoine_down_syndrome_extract_spondylosis") }}'
+    - name: Diseases of the genitourinary system
+      description: '{{ doc("chicoine_down_syndrome_extract_diseases_of_the_genitourinary_system")
+        }}'
+    - name: infection_uti_status
+      description: '{{ doc("chicoine_down_syndrome_extract_infection_uti_status")
+        }}'
+    - name: male_phimosis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_male_phimosis_status")
+        }}'
+    - name: urogen_hydroneph_status
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_hydroneph_status")
+        }}'
+    - name: urogen_kidney_dz_status
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_kidney_dz_status")
+        }}'
+    - name: urogen_other_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_other_specify")
+        }}'
+    - name: urogen_reflux_status
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_reflux_status")
+        }}'
+    - name: Acute kidney failure
+      description: '{{ doc("chicoine_down_syndrome_extract_acute_kidney_failure")
+        }}'
+    - name: Chronic kidney disease
+      description: '{{ doc("chicoine_down_syndrome_extract_chronic_kidney_disease")
+        }}'
+    - name: Urinary incontinence
+      description: '{{ doc("chicoine_down_syndrome_extract_urinary_incontinence")
+        }}'
+    - name: Urinary retention
+      description: '{{ doc("chicoine_down_syndrome_extract_urinary_retention") }}'
+    - name: Nephrolithiasis (kidney stones)
+      description: '{{ doc("chicoine_down_syndrome_extract_nephrolithiasis_(kidney_stones)")
+        }}'
+    - name: Metrorrhagia
+      description: '{{ doc("chicoine_down_syndrome_extract_metrorrhagia") }}'
+    - name: Dysmenorrhea
+      description: '{{ doc("chicoine_down_syndrome_extract_dysmenorrhea") }}'
+    - name: Certain conditions originating in the perinatal period
+      description: '{{ doc("chicoine_down_syndrome_extract_certain_conditions_originating_in_the_perinatal_period")
+        }}'
+    - name: endo_congen_diabetes_status
+      description: '{{ doc("chicoine_down_syndrome_extract_endo_congen_diabetes_status")
+        }}'
+    - name: Congenital malformations, deformations and chromosomal abnormalities
+      description: '{{ doc("chicoine_down_syndrome_extract_congenital_malformations__deformations_and_chromosomal_abnormalities")
+        }}'
+    - name: cardiac_other_chd_specify
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_other_chd_specify")
+        }}'
+    - name: cardiac_asd_age
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_asd_age") }}'
+    - name: cardiac_pda_age
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_pda_age") }}'
+    - name: cardiac_pfo_age
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_pfo_age") }}'
+    - name: cardiac_tof_age
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_tof_age") }}'
+    - name: cardiac_vsd_age
+      description: '{{ doc("chicoine_down_syndrome_extract_cardiac_vsd_age") }}'
+    - name: ds_diagnosis
+      description: '{{ doc("chicoine_down_syndrome_extract_ds_diagnosis") }}'
+    - name: ent_laryngo_status
+      description: '{{ doc("chicoine_down_syndrome_extract_ent_laryngo_status") }}'
+    - name: gi_esophageal_atresia_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_esophageal_atresia_status")
+        }}'
+    - name: gi_hirschsprung_status
+      description: '{{ doc("chicoine_down_syndrome_extract_gi_hirschsprung_status")
+        }}'
+    - name: male_hypospadias_status
+      description: '{{ doc("chicoine_down_syndrome_extract_male_hypospadias_status")
+        }}'
+    - name: male_testicles_status
+      description: '{{ doc("chicoine_down_syndrome_extract_male_testicles_status")
+        }}'
+    - name: urogen_agenesis_status
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_agenesis_status")
+        }}'
+    - name: urogen_kidney_status
+      description: '{{ doc("chicoine_down_syndrome_extract_urogen_kidney_status")
+        }}'
+    - name: Other
+      description: '{{ doc("chicoine_down_syndrome_extract_other") }}'
+    - name: Dysphagia
+      description: '{{ doc("chicoine_down_syndrome_extract_dysphagia") }}'
+    - name: Abnormalities of gait and mobility
+      description: '{{ doc("chicoine_down_syndrome_extract_abnormalities_of_gait_and_mobility")
+        }}'
+    - name: Do not resuscitate status
+      description: '{{ doc("chicoine_down_syndrome_extract_do_not_resuscitate_status")
+        }}'

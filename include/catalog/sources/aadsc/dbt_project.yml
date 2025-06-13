@@ -1,0 +1,19 @@
+name: aadsc
+version: 1.0.0
+profile: include
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+clean-targets:
+- target
+- dbt_packages
+models:
+  +schema: main
+  +materialized: table
+  clinical:
+    aadsc_stg_clinical:
+      +schema: main
+      +materialized: table

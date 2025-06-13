@@ -1,0 +1,21 @@
+name: ftd
+version: 1.0.0
+profile: include
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
+models:
+  aadsc:
+    aadsc_ftd_condition:
+      +schema: main
+      +materialized: table
+    aadsc_ftd_participant:
+      +schema: main
+      +materialized: table
+    aadsc_ftd_study:
+      +schema: main
+      +materialized: table
