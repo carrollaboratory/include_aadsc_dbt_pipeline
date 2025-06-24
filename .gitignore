@@ -2,6 +2,7 @@ package-lock.yml
 dbt_packages
 .user.yml
 .log
+dbt.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

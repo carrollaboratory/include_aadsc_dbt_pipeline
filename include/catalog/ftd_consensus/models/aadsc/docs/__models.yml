@@ -3,6 +3,9 @@ models:
 - name: aadsc_ftd_condition
   description: Model for aadsc_ftd_condition.
   columns:
+  - name: ftd_index
+    description: '{{ doc("aadsc_ftd_condition_ftd_index") }}'
+    data_type: integer
   - name: study_code
     description: '{{ doc("aadsc_ftd_condition_study_code") }}'
     data_type: enumeration
@@ -67,6 +70,9 @@ models:
 - name: aadsc_ftd_participant
   description: Model for aadsc_ftd_participant.
   columns:
+  - name: ftd_index
+    description: '{{ doc("aadsc_ftd_participant_ftd_index") }}'
+    data_type: integer
   - name: study_code
     description: '{{ doc("aadsc_ftd_participant_study_code") }}'
     data_type: enumeration

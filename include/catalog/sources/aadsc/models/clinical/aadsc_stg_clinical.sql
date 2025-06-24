@@ -204,6 +204,7 @@
     )
 
     select 
-        *
+        ROW_NUMBER() OVER () AS ftd_index
+        ,source.*
         from source
     

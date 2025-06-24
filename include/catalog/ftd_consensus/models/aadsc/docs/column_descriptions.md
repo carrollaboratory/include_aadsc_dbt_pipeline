@@ -3,6 +3,11 @@ Model for aadsc_ftd_condition.
 {% enddocs %}
 
 
+{% docs aadsc_ftd_condition_ftd_index %}
+nan
+{% enddocs %}
+
+
 {% docs aadsc_ftd_condition_study_code %}
 Unique identifier for the study, assigned by DCC
 {% enddocs %}
@@ -105,6 +110,11 @@ Unit that is associated with Measure Value (e.g. kg, cm, %, x10^9/L, etc.)
 
 {% docs aadsc_ftd_participant_description %}
 Model for aadsc_ftd_participant.
+{% enddocs %}
+
+
+{% docs aadsc_ftd_participant_ftd_index %}
+nan
 {% enddocs %}
 
 

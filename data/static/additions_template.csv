@@ -1,1 +1,1 @@
-variable_name,variable_description,data_type,enumerated_values,units,min,max,src_variable_name
+variable_name,description,data_type,enumerations,units,min,max,src_variable_name

@@ -1,4 +1,5 @@
 variable_name,description,data_type,enumerations,comment
+ftd_index,"internal source data index",integer,,
 study_code,"Unique identifier for the study, assigned by DCC",enumeration,HTP,
 participant_global_id,"Unique INCLUDE global identifier for the participant, assigned by DCC",string,,
 participant_external_id,"Unique, de-identified identifier for the participant, assigned by data contributor. External IDs must be two steps removed from personal information in the study records.",string,,
