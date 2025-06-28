@@ -1,4 +1,4 @@
-variable_name,description,data_type,enumerations,min,max,comment
+variable_name,variable_description,data_type,enumerations,min,max,comment
 study_code,Study Code,string,AADSC;ABC-DS;AECOM-DS;BrainPower;BRI-DSR;DECIDAS;DS-COG-ALL;DS-Nexus;DS-PCGC;DS-Sleep;DS360-CHD;DSC;EXcEEDS;HTP;INCLUDE-GUIDs;OPTimal;TEAM-DS;X01-deSmith;X01-Hakonarson,,,
 study_title,Study Title,string,,,,
 program,Program,string,INCLUDE;INCLUDE|KF,,,

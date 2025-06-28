@@ -4,7 +4,7 @@ Model for aadsc_ftd_condition.
 
 
 {% docs aadsc_ftd_condition_ftd_index %}
-nan
+internal source data index
 {% enddocs %}
 
 
@@ -114,7 +114,7 @@ Model for aadsc_ftd_participant.
 
 
 {% docs aadsc_ftd_participant_ftd_index %}
-nan
+internal source data index
 {% enddocs %}
 
 

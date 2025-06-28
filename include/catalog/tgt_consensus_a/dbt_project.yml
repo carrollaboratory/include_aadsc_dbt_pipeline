@@ -1,6 +1,6 @@
 name: tgt
 version: 1.0.0
-profile: include
+profile: duckdb
 model-paths:
 - models
 macro-paths:
@@ -10,19 +10,9 @@ clean-targets:
 - dbt_packages
 vars:
   target_schema: fallback_schema
-  source_table: include
+  source_table: aadsc_stg_clinical
 models:
   tgt:
     +materialized: table
-    tgt_additive: null
     tgt_condition: null
-    tgt_contacts: null
-    tgt_datafile: null
-    tgt_dataset_manifest: null
-    tgt_dataset_meta: null
-    tgt_encounter: null
-    tgt_family: null
     tgt_participant: null
-    tgt_phenotype: null
-    tgt_specimen: null
-    tgt_study: null

@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='aadsc_data') }}
 
 {% set relation = ref('aadsc_stg_clinical') %}
-{% set constant_columns = ['ftd_index','MASKED_ID','AGE','SEX','RACE','ETHNICITY','EXTRACTION_DATE','BMI','HEIGHT','WEIGHT'] %}
+{% set constant_columns = ['ftd_index','MASKED_ID','AGE','SEX','RACE','ETHNICITY','EXTRACTION_DATE','HEIGHT','WEIGHT'] %}
 {% set condition_columns = get_unpivot_columns(relation=relation, exclude=constant_columns) %}
 
     with 
@@ -44,9 +44,10 @@
     select
         distinct
         "condition_name" ::text as condition_name,
-        NULLIF(
-        CONCAT_WS('|', "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix"),'')
-        ::text as other_codes
+        "icd9_codes_with_prefix",
+        "icd10_codes_with_prefix",
+        "icdO_codes_with_prefix",
+        "icd10cm_label"
     from {{ ref('annotations') }} as a
     where "icd9_codes_with_prefix" is not null 
         or "icd10_codes_with_prefix" is not null 
@@ -54,45 +55,78 @@
     )
     ,source as (
         select 
-            c.ftd_index,
-            'aadsc'::text as "study_code",
-            NULL as "participant_global_id",
-            c.masked_id::text as "participant_external_id",
-            NULL as "event_id",
-            NULL as "event_type",
-            c.condition::text as "condition_or_measure_source_text",
-                CASE 
-                WHEN c.age == 'Age 90 or older'
-                    THEN NULL
-                ELSE
-                    floor(cast(c.age as float))
-            ::integer END as "age_at_first_patient_engagement",
-                CASE
-                WHEN c.assertion = 1
-                    THEN 'Observed'
-                ELSE 'Not Observed' -- Should not occur. See unpivot_df cte
-            ::text END as "condition_interpretation",
-            NULL as "condition_status",
-            'clinical'::text as "condition_data_source",
+            clinical.ftd_index,
+            'aadsc' as "study_code",
+                {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}
+            ::text as "participant_external_id",
+            clinical.condition::text as "condition_or_measure_source_text",
+                case
+                when  clinical.age = 'Age 90 or older'
+                    then 0
+                when  clinical.age is null
+                    then 0
+                else FLOOR(CAST(clinical.age AS FLOAT) * 365.25)
+            end as "age_at_first_patient_engagement",
+                case
+                when  clinical.assertion = '1'
+                    then 'Observed'
+                when  clinical.assertion = '0'
+                    then 'Not Observed'
+                when  clinical.assertion is null
+                    then null
+                else null
+            end as "condition_interpretation",
             ha.hpo_label,
             ha.hpo_code,
             ma.mondo_label,
             ma.mondo_code,
-            NULL as "maxo_label",
-            NULL as "maxo_code",
-            NULL as "other_label",
-            oa.other_codes::text as "other_code",
-            NULL as "measure_value",
-            NULL as "measure_unit"
-        from unpivot_df as c
+                case 
+                when ha.hpo_code is null and ma.mondo_code is null
+                    then (select "icd10cm_label" 
+                          from other_annotations 
+                          where condition_name = clinical.condition
+                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix"
+                          limit 1)::text
+                else null 
+            end as "other_label",
+                case 
+                when ha.hpo_code is null and ma.mondo_code is null
+                    then (select COALESCE("icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix",'') 
+                          from other_annotations 
+                          where condition_name = clinical.condition
+                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix"
+                          limit 1)::text
+                else null 
+            end as "other_code",
+        from unpivot_df as clinical
         left join mondo_annotations as ma
-            on ma.condition_name = c.condition
+            on ma.condition_name = clinical.condition
         left join hpo_annotations as ha
-            on ha.condition_name = c.condition
-        left join other_annotations as oa
-            on oa.condition_name = c.condition
+            on ha.condition_name = clinical.condition
     )
 
 
-select * 
+select 
+    source.ftd_index,
+    source.study_code, --req
+    null::text as "participant_global_id", --req, created after the pipeline
+    source.participant_external_id, --req
+    null::text as "event_id",
+    null::text as "event_type",
+    null::integer as "age_at_condition_measure_observation",
+    source.condition_or_measure_source_text,
+    source.age_at_first_patient_engagement,
+    source.condition_interpretation,
+    null::text as "condition_status",
+    null::text as "condition_data_source",
+    source.hpo_label,
+    source.hpo_code,
+    source.mondo_label,
+    source.mondo_code,
+    null::text as "maxo_label",
+    null::text as "maxo_code",
+    source.other_label,
+    source.other_code,
+    null::text as "measure_value",
+    null::text as "measure_unit"
 from source

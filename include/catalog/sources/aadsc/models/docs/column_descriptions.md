@@ -2051,3 +2051,92 @@ Abnormalities of gait and mobility
 {% docs aadsc_stg_clinical_do_not_resuscitate_status %}
 Do not resuscitate status
 {% enddocs %}
+
+{% docs aadsc_stg_clinical_masked_id %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_age %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_extraction_date %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_height %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_weight %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_auto_narcolepsy_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_auto_other_specify %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_change_in_skin_texture %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_disorder_of_adrenal_gland_unspecified %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_endo_vitamind_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_neuro_dementia_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_nonalcoholic_steatohepatitis %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_psych_odd_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_psych_panic_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_psych_schizophrenia_status %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_vitamin_b12_deficiency %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_xerosis_cutis %}
+None
+{% enddocs %}
+
+
+{% docs aadsc_stg_clinical_ftd_index %}
+None
+{% enddocs %}

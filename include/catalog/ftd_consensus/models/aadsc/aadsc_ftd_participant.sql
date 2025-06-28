@@ -3,45 +3,94 @@
     with
     source as (
         select 
-            'PH_STUDY_CODE' as "study_code",
-            'PH_G_ID'::text as "participant_global_id",
-            'PH_EX_ID'::text as "participant_external_id",
-            clinical.sex::text as "sex",
-            clinical.race::text as "race",
-            clinical.ethnicity::text as "ethnicity",
-                CASE
-                WHEN clinical.ds_diagnosis = 1
-                    THEN 'T21'
-                ELSE 
-                    'D21'
-            ::text END as "down_syndrome_status",
-                CASE 
-                WHEN clinical.age == 'Age 90 or older'
-                    THEN NULL
-                ELSE
-                    floor(cast(clinical.age as float))
-            ::integer END as "age_at_first_patient_engagement"
+            clinical.ftd_index::text as "ftd_index",
+            'aadsc' as "study_code",
+                {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}      
+            ::text as "participant_external_id",
+            'Other' as "family_type",
+            'Proband' as "family_relationship",
+                case
+                when  clinical.sex = 'Female'
+                    then 'Female'
+                when  clinical.sex = 'Male'
+                    then 'Male'
+                when  clinical.sex is null
+                    then 'Unknown'
+                else null
+            end as "sex",
+            case
+                when  clinical.race = 'Black/African American'
+                    then 'Black or African American'
+                when  clinical.race = 'Native Hawaiian'
+                    then 'Native Hawaiian or Other Pacific Islander'
+                when  clinical.race = 'Two or more races'
+                    then 'More than one race'
+                when  clinical.race = 'Other Pacific Islander'
+                    then 'Native Hawaiian or Other Pacific Islander'
+                when  clinical.race = 'XXNative Hawaiian/Other Pacific Islander'
+                    then 'Native Hawaiian or Other Pacific Islander'
+                when  clinical.race = 'American Indian or Alaskan Native'
+                    then 'American Indian or Alaska Native'
+                when  clinical.race = 'Unknown'
+                    then 'Unknown'
+                when  clinical.race = 'Asian'
+                    then 'Asian'
+                when  clinical.race = 'White'
+                    then 'White'
+                when  clinical.race is null
+                    then 'Unknown'
+                else 'Unknown'
+            end as "race",
+                case
+                when  clinical.ethnicity = 'Hispanic/Latino Origin'
+                    then 'Hispanic or Latino'
+                when  clinical.ethnicity = 'Not of Hispanic or Latino Origin'
+                    then 'Not Hispanic or Latino'
+                when  clinical.ethnicity = 'Patient Refused'
+                    then 'Prefer not to answer'
+                when  clinical.ethnicity = 'Unknown'
+                    then 'Unknown'
+                when  clinical.ethnicity is null
+                    then 'Unknown'
+                else null
+            end as "ethnicity",            
+                case
+                when  clinical.ds_diagnosis = '1'
+                    then 'T21'
+                when  clinical.ds_diagnosis is null
+                    then 'D21'
+                else 'D21'
+            end as "down_syndrome_status",
+                case
+                when  clinical.age = 'Age 90 or older'
+                    then 0
+                when  clinical.age is null
+                    then 0
+                else FLOOR(CAST(clinical.age AS FLOAT) * 365.25)
+            end as "age_at_first_patient_engagement",
+            'Unknown' as "first_patient_engagement_event",
         from {{ ref('aadsc_stg_clinical') }} as clinical
     )
 
     select 
-       source.study_code,
-       source.participant_global_id,
-       source.participant_external_id,
-       NULL as "family_id",
-       NULL as "family_type",
-       NULL as "father_id",
-       NULL as "mother_id",
-       NULL as "sibling_id",
-       NULL as "other_family_member_id",
-       NULL as "family_relationship",
-       source.sex,
-       source.race,
-       source.ethnicity,
-       source.down_syndrome_status,
-       source.age_at_first_patient_engagement,
-       NULL as "first_patient_engagement_event",
-       NULL as "outcomes_vital_status",
-       NULL as "age_at_last_vital_status"
+       source.ftd_index,
+       source.study_code, --req
+       null::text as "participant_global_id", --req, created after the pipeline
+       source.participant_external_id, --req
+       null::text as "family_id",
+       source.family_type, --req
+       null::text as "father_id",
+       null::text as "mother_id",
+       null::text as "sibling_id",
+       null::text as "other_family_member_id",
+       source.family_relationship, --req
+       source.sex, --req
+       source.race, --req
+       source.ethnicity, --req
+       source.down_syndrome_status, --req
+       source.age_at_first_patient_engagement, --req
+       source.first_patient_engagement_event, --req
+       null::text as "outcomes_vital_status",
+       null::integer as "age_at_last_vital_status"
     from source
     

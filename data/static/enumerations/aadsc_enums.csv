@@ -1,0 +1,61 @@
+src_table,src_field,expected_src_value,equivalent_model_value,tgt_field,in_use
+"clinical","race",'Black/African American','Black or African American',"race",T
+"clinical","race",'Native Hawaiian','Native Hawaiian or Other Pacific Islander',"race",T
+"clinical","race",'Two or more races','More than one race',"race",T
+"clinical","race",'Other Pacific Islander','Native Hawaiian or Other Pacific Islander',"race",T
+"clinical","race",'XXNative Hawaiian/Other Pacific Islander','Native Hawaiian or Other Pacific Islander',"race",T
+"clinical","race",'American Indian or Alaskan Native','American Indian or Alaska Native',"race",T
+"clinical","race",'Unknown','Unknown',"race",T
+"clinical","race",'Asian','Asian',"race",T
+"clinical","race",'White','White',"race",T
+"clinical","race",,'Other',"race",F
+"clinical","race",,'Prefer not to answer',"race",F
+"clinical","race",,'East Asian',"race",F
+"clinical","race",,'Latin American',"race",F
+"clinical","race",,'Middle Eastern or North African',"race",F
+"clinical","race",,'South Asian',"race",F
+"clinical","race",is null,'Unknown',"race",T
+"clinical","race","no_data",'Unknown',"race",T
+"clinical","sex",'Female','Female',"sex",T
+"clinical","sex",'Male','Male',"sex",T
+"clinical","sex",'Other','Other',"sex",F
+"clinical","sex",'Unknown','Unknown',"sex",F
+"clinical","sex",is null,'Unknown',"sex",T
+"clinical","sex","no_data",null,"sex",T
+"clinical","ethnicity",'Hispanic/Latino Origin','Hispanic or Latino',"ethnicity",T
+"clinical","ethnicity",'Not of Hispanic or Latino Origin','Not Hispanic or Latino',"ethnicity",T
+"clinical","ethnicity",'Patient Refused','Prefer not to answer',"ethnicity",T
+"clinical","ethnicity",'Unknown','Unknown',"ethnicity",T
+"clinical","ethnicity",is null,'Unknown',"ethnicity",T
+"clinical","ethnicity","no_data",null,"ethnicity",T
+"clinical","ds_diagnosis",'1','T21',"down_syndrome_status",T
+"clinical","ds_diagnosis",'0','D21',"down_syndrome_status",F
+"clinical","ds_diagnosis",is null,'D21',"down_syndrome_status",T
+"clinical","ds_diagnosis","no_data",'D21',"down_syndrome_status",T
+"clinical","assertion",'1','Observed',"condition_interpretation",T
+"clinical","assertion",'0','Not Observed',"condition_interpretation",T
+"clinical","assertion",is null,null,"condition_interpretation",T
+"clinical","assertion","no_data",null,"condition_interpretation",T
+"clinical","age",'Age 90 or older',0,"age_at_first_patient_engagement",T
+"clinical","age",is null,0,"age_at_first_patient_engagement",T
+"clinical","age","no_data",FLOOR(CAST(clinical.age AS FLOAT) * 365.25),"age_at_first_patient_engagement",T
+"clinical","family_type",,'Control-only',"family_type",F
+"clinical","family_type",,'Duo',"family_type",F
+"clinical","family_type",,'Other',"family_type",F
+"clinical","family_type",'Proband-only','Proband-only',"family_type",T
+"clinical","family_type",,'Trio',"family_type",F
+"clinical","family_type",,'Trio Plus,"family_type",F
+"clinical","family_type",is null,'Other',"family_type",T
+"clinical","family_type","no_data",'Other',"family_type",T
+"clinical","family_relationship",'Proband','Proband',"family_relationship",T
+"clinical","family_relationship",,'Father',"family_relationship",F
+"clinical","family_relationship",,'Mother',"family_relationship",F
+"clinical","family_relationship",,'Sibling',"family_relationship",F
+"clinical","family_relationship",,'Other relative',"family_relationship",F
+"clinical","family_relationship",,'Unrelated control',"family_relationship",F
+"clinical","family_relationship",is null,'Proband',"family_relationship",T
+"clinical","family_relationship","no_data",'Proband',"family_relationship",T
+"clinical","first_patient_engagement_event",is null,'UNKNOWN',"first_patient_engagement_event",T
+"clinical","first_patient_engagement_event",is not null,clinical.first_patient_engagement_event,"first_patient_engagement_event",T
+"clinical","first_patient_engagement_event","no_data",'UNKNOWN',"first_patient_engagement_event",T
+
