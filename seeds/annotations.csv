@@ -1,4 +1,4 @@
-Ccondition_name,icd9_codes_with_prefix,icd10_codes_with_prefix,icdO_codes_with_prefix,mondo_label,mondo_codes_with_prefix,hpo_label,hpo_codes_with_prefix,icd10cm_label
+condition_name,icd9_codes_with_prefix,icd10_codes_with_prefix,icdO_codes_with_prefix,mondo_label,mondo_codes_with_prefix,hpo_label,hpo_codes_with_prefix,icd10cm_label
 bmi,,ICD10CM:Z68.0,,,,,,Body mass index [BMI]
 abnormalities_of_gait_and_mobility,,ICD10CM:R26,,,,,,
 abnormalities_of_gait_and_mobility,,,,,,Gait disturbance,HP:0001288,

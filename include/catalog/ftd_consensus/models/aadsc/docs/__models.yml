@@ -14,7 +14,7 @@ models:
     - not_null
     - accepted_values:
         values:
-        - aadsc
+        - AADSC
   - name: participant_global_id
     description: '{{ doc("aadsc_ftd_condition_participant_global_id") }}'
     data_type: string
@@ -37,8 +37,8 @@ models:
     description: '{{ doc("aadsc_ftd_condition_condition_or_measure_source_text") }}'
     data_type: string
     tests: []
-  - name: age_at_condition_or_measure_observation
-    description: '{{ doc("aadsc_ftd_condition_age_at_condition_or_measure_observation")
+  - name: age_at_condition_measure_observation
+    description: '{{ doc("aadsc_ftd_condition_age_at_condition_measure_observation")
       }}'
     data_type: integer
     tests:
@@ -125,7 +125,7 @@ models:
     - not_null
     - accepted_values:
         values:
-        - aadsc
+        - AADSC
   - name: participant_global_id
     description: '{{ doc("aadsc_ftd_participant_participant_global_id") }}'
     data_type: string
@@ -262,75 +262,186 @@ models:
   - name: study_code
     description: '{{ doc("aadsc_ftd_study_study_code") }}'
     data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - AADSC
+        - ABC-DS
+        - AECOM-DS
+        - BrainPower
+        - BRI-DSR
+        - DECIDAS
+        - DS-COG-ALL
+        - DS-Nexus
+        - DS-PCGC
+        - DS-Sleep
+        - DS360-CHD
+        - DSC
+        - EXcEEDS
+        - HTP
+        - INCLUDE-GUIDs
+        - OPTimal
+        - TEAM-DS
+        - X01-deSmith
+        - X01-Hakonarson
   - name: study_title
     description: '{{ doc("aadsc_ftd_study_study_title") }}'
     data_type: string
+    tests:
+    - not_null
   - name: program
     description: '{{ doc("aadsc_ftd_study_program") }}'
     data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - INCLUDE
+        - INCLUDE|KF
   - name: study_description
     description: '{{ doc("aadsc_ftd_study_study_description") }}'
     data_type: string
+    tests:
+    - not_null
   - name: principal_investigator_name
     description: '{{ doc("aadsc_ftd_study_principal_investigator_name") }}'
     data_type: string
+    tests:
+    - not_null
   - name: study_contact_name
     description: '{{ doc("aadsc_ftd_study_study_contact_name") }}'
     data_type: string
+    tests:
+    - not_null
   - name: study_contact_institution
     description: '{{ doc("aadsc_ftd_study_study_contact_institution") }}'
     data_type: string
+    tests:
+    - not_null
   - name: study_contact_email
     description: '{{ doc("aadsc_ftd_study_study_contact_email") }}'
     data_type: string
+    tests:
+    - not_null
   - name: vbr_email
     description: '{{ doc("aadsc_ftd_study_vbr_email") }}'
     data_type: string
+    tests: []
   - name: vbr_url
     description: '{{ doc("aadsc_ftd_study_vbr_url") }}'
     data_type: string
+    tests: []
   - name: vbr_readme
     description: '{{ doc("aadsc_ftd_study_vbr_readme") }}'
     data_type: string
+    tests: []
   - name: research_domain
     description: '{{ doc("aadsc_ftd_study_research_domain") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - Behavior and Behavior Mechanisms
+        - Congenital Heart Defects
+        - Immune System Diseases
+        - Hematologic Diseases
+        - Sleep Wake Disorders
+        - All Co-occurring Conditions
+        - Other
   - name: participant_lifespan_stage
     description: '{{ doc("aadsc_ftd_study_participant_lifespan_stage") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - Fetal
+        - Neonatal
+        - Pediatric
+        - Adult
   - name: selection_criteria
     description: '{{ doc("aadsc_ftd_study_selection_criteria") }}'
     data_type: string
+    tests: []
   - name: study_design
     description: '{{ doc("aadsc_ftd_study_study_design") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - Case-Control
+        - Case Set
+        - Control Set
+        - Clinical Trial
+        - Cross-Sectional
+        - Family/Twins/Trios
+        - Interventional
+        - Longitudinal
+        - Tumor vs Matched Normal
   - name: clinical_data_source_type
     description: '{{ doc("aadsc_ftd_study_clinical_data_source_type") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - Medical Record
+        - Investigator Assessment
+        - Participant or Caregiver Report
+        - Other
+        - Unknown
   - name: data_category
     description: '{{ doc("aadsc_ftd_study_data_category") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
   - name: study_website
     description: '{{ doc("aadsc_ftd_study_study_website") }}'
     data_type: string
+    tests: []
   - name: dbgap
     description: '{{ doc("aadsc_ftd_study_dbgap") }}'
     data_type: string
+    tests: []
   - name: publication
     description: '{{ doc("aadsc_ftd_study_publication") }}'
     data_type: string
+    tests: []
   - name: expected_number_of_participants
     description: '{{ doc("aadsc_ftd_study_expected_number_of_participants") }}'
     data_type: int
+    tests:
+    - not_null
   - name: guid_type
     description: '{{ doc("aadsc_ftd_study_guid_type") }}'
-    data_type: enumeration
+    data_type: string
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - NDAR
+        - Other
+        - No GUID
   - name: guid_mapped
     description: '{{ doc("aadsc_ftd_study_guid_mapped") }}'
     data_type: string
+    tests: []
   - name: acknowledgments
     description: '{{ doc("aadsc_ftd_study_acknowledgments") }}'
     data_type: string
+    tests: []
   - name: citation_statement
     description: '{{ doc("aadsc_ftd_study_citation_statement") }}'
     data_type: string
+    tests: []
+  - name: doi
+    description: '{{ doc("aadsc_ftd_study_doi") }}'
+    data_type: string
+    tests: []
+  - name: doi_citation
+    description: '{{ doc("aadsc_ftd_study_doi_citation") }}'
+    data_type: string
+    tests: []

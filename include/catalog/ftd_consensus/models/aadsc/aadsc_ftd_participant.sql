@@ -4,7 +4,7 @@
     source as (
         select 
             clinical.ftd_index::text as "ftd_index",
-            'aadsc' as "study_code",
+            'AADSC' as "study_code",
                 {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}      
             ::text as "participant_external_id",
             'Other' as "family_type",

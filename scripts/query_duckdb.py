@@ -4,7 +4,7 @@ import duckdb
 from scripts.helpers import logger
 con = duckdb.connect("/tmp/dbt.duckdb")
 
-stage = 'tgt'
+stage = 'ftd'
 
 
 # Function to truncate rows for better readability
@@ -30,7 +30,7 @@ if stage == 'ftd':
         logger.info(table)
 
     # Process each table
-    for table in ['aadsc_ftd_participant']:
+    for table in ['aadsc_ftd_study']:
         logger.info(f"\nProcessing table '{table_schema}.{table}'...\n")
 
         # Fetch column names of the table
@@ -45,8 +45,13 @@ if stage == 'ftd':
         columns_str = ", ".join(columns_to_select)
 
 
-        # Fetch first 5 rows ordered by ftd_index
-        rows = con.execute(f"SELECT {columns_str} FROM {table_schema}.{table} ORDER BY ftd_index LIMIT 5").fetchall()
+        # # Fetch first 5 rows
+        # rows = con.execute(f"SELECT {columns_str} FROM {table_schema}.{table}  LIMIT 5").fetchall()
+        # logger.info(f"\nFirst 5 rows in table '{table}':")
+        # for row in format_rows(rows):
+        #     logger.info(row)
+
+        rows = con.execute(f"SELECT * FROM {table_schema}.{table} ").fetchall()
         logger.info(f"\nFirst 5 rows in table '{table}':")
         for row in format_rows(rows):
             logger.info(row)
@@ -89,23 +94,23 @@ if stage == 'ftd':
         # ).fetchall()
         # logger.info(f"\nResult logger.infoed to output csv {table}")
         
-        dist_cond = con.execute(
-            f"SELECT distinct ethnicity FROM {table_schema}.{table}"
-        ).fetchall()
-        logger.info(f"\nView distinct extraction dates:")
-        for row in format_rows(dist_cond):
-            logger.info(row)
+        # dist_cond = con.execute(
+        #     f"SELECT distinct ethnicity FROM {table_schema}.{table}"
+        # ).fetchall()
+        # logger.info(f"\nView distinct extraction dates:")
+        # for row in format_rows(dist_cond):
+        #     logger.info(row)
 
-        to_csv = con.execute(
-            f"COPY (SELECT ftd_index, condition_or_measure_source_text, count(condition_or_measure_source_text) FROM {table_schema}.{table} WHERE ftd_index in (SELECT ftd_index FROM {table_schema}.{table} GROUP BY ftd_index HAVING count(distinct condition_or_measure_source_text) > 1 ORDER BY ftd_index LIMIT 100) GROUP BY ftd_index, condition_or_measure_source_text ORDER BY ftd_index) TO 'output.csv' (HEADER, DELIMITER ',')"
-        ).fetchall()
-        logger.info(f"\nResult logger.infoed to output csv {table}")
+        # to_csv = con.execute(
+        #     f"COPY (SELECT ftd_index, condition_or_measure_source_text, count(condition_or_measure_source_text) FROM {table_schema}.{table} WHERE ftd_index in (SELECT ftd_index FROM {table_schema}.{table} GROUP BY ftd_index HAVING count(distinct condition_or_measure_source_text) > 1 ORDER BY ftd_index LIMIT 100) GROUP BY ftd_index, condition_or_measure_source_text ORDER BY ftd_index) TO 'output.csv' (HEADER, DELIMITER ',')"
+        # ).fetchall()
+        # logger.info(f"\nResult logger.infoed to output csv {table}")
 
         
-        to_csv = con.execute(
-            f"COPY (SELECT condition_or_measure_source_text, other_code FROM {table_schema}.{table} WHERE hpo_code IS NULL AND mondo_code IS NULL GROUP BY condition_or_measure_source_text, other_code ORDER BY condition_or_measure_source_text LIMIT 100) TO 'output.csv' (HEADER, DELIMITER ',')"
-        ).fetchall()
-        logger.info(f"\nResult logger.infoed to output csv {table}")
+        # to_csv = con.execute(
+        #     f"COPY (SELECT condition_or_measure_source_text, other_code FROM {table_schema}.{table} WHERE hpo_code IS NULL AND mondo_code IS NULL GROUP BY condition_or_measure_source_text, other_code ORDER BY condition_or_measure_source_text LIMIT 100) TO 'output.csv' (HEADER, DELIMITER ',')"
+        # ).fetchall()
+        # logger.info(f"\nResult logger.infoed to output csv {table}")
 
 
 

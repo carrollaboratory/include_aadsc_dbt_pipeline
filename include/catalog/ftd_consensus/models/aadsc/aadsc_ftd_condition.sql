@@ -2,7 +2,7 @@
 
 {% set relation = ref('aadsc_stg_clinical') %}
 {% set constant_columns = ['ftd_index','MASKED_ID','AGE','SEX','RACE','ETHNICITY','EXTRACTION_DATE','HEIGHT','WEIGHT'] %}
-{% set condition_columns = get_unpivot_columns(relation=relation, exclude=constant_columns) %}
+{% set condition_columns = get_columns(relation=relation, exclude=constant_columns) %}
 
     with 
     unpivot_df as (
@@ -56,7 +56,7 @@
     ,source as (
         select 
             clinical.ftd_index,
-            'aadsc' as "study_code",
+            'AADSC' as "study_code",
                 {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}
             ::text as "participant_external_id",
             clinical.condition::text as "condition_or_measure_source_text",
