@@ -10,7 +10,7 @@ clean-targets:
 - dbt_packages
 vars:
   target_schema: fallback_schema
-  source_table: aadsc_stg_clinical
+  source_table: aadsc_ftd_participant
 models:
   tgt:
     +materialized: table

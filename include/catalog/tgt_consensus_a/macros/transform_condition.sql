@@ -1,4 +1,4 @@
-{% macro transform_condition(source_table) %}
+{% macro transform_condition(source_ref) %}
 with ftd_condition as (
     select 
        c.study_code::text as "studyCode",
@@ -21,7 +21,7 @@ with ftd_condition as (
        c.other_code::text as "otherCode",
        c.measure_value::float as "measureValue",
        c.measure_unit::text as "measureUnit"
-    from {{ ref(source_table) }} as c
+    from {{ source_ref }} as c
 )
 
 select

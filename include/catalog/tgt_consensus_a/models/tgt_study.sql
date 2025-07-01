@@ -2,7 +2,7 @@
     schema=var('target_schema')
 ) }}
 
-{% set source_table = (var('source_table') | default(none)) %}
+{% set source_table = ('aadsc_ftd_study') %}
 
 {% if source_table is not none %}
   {% do log("Using source_table: " ~ source_table, info=True) %}
