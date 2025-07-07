@@ -7,7 +7,7 @@
             'AADSC' as "study_code",
                 {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}      
             ::text as "participant_external_id",
-            'Other' as "family_type",
+            'Proband-only' as "family_type",
             'Proband' as "family_relationship",
                 case
                 when  clinical.sex = 'Female'
@@ -39,7 +39,7 @@
                     then 'White'
                 when  clinical.race is null
                     then 'Unknown'
-                else 'Unknown'
+                else null
             end as "race",
                 case
                 when  clinical.ethnicity = 'Hispanic/Latino Origin'
@@ -57,18 +57,8 @@
                 case
                 when  clinical.ds_diagnosis = '1'
                     then 'T21'
-                when  clinical.ds_diagnosis is null
-                    then 'D21'
-                else 'D21'
+                else null
             end as "down_syndrome_status",
-                case
-                when  clinical.age = 'Age 90 or older'
-                    then 0
-                when  clinical.age is null
-                    then 0
-                else FLOOR(CAST(clinical.age AS FLOAT) * 365.25)
-            end as "age_at_first_patient_engagement",
-            'Unknown' as "first_patient_engagement_event",
         from {{ ref('aadsc_stg_clinical') }} as clinical
     )
 
@@ -88,8 +78,8 @@
        source.race, --req
        source.ethnicity, --req
        source.down_syndrome_status, --req
-       source.age_at_first_patient_engagement, --req
-       source.first_patient_engagement_event, --req
+       null::integer as "age_at_first_patient_engagement", --req
+       null::text as "first_patient_engagement_event", --req
        null::text as "outcomes_vital_status",
        null::integer as "age_at_last_vital_status"
     from source

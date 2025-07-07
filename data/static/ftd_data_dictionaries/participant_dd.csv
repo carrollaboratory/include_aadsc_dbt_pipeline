@@ -1,6 +1,6 @@
 variable_name,variable_description,data_type,enumerations,comment,tests
 ftd_index,"internal source data index",integer,,,
-study_code,"Unique identifier for the study, assigned by DCC",enumeration,aadsc,,not_null|accepted_values
+study_code,"Unique identifier for the study, assigned by DCC",enumeration,AADSC,,not_null|accepted_values
 participant_global_id,"Unique INCLUDE global identifier for the participant, assigned by DCC",string,,,not_null
 participant_external_id,"Unique, de-identified identifier for the participant, assigned by data contributor. External IDs must be two steps removed from personal information in the study records.",string,,,not_null
 family_id,"Unique identifier for family to which Participant belongs, assigned by data contributor",string,,,

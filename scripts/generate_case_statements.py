@@ -25,13 +25,13 @@ def generate_case_statements(csv_file_path):
                 case_statements[tgt_field] = []
             
             # Add `WHEN` clauses to the case statement
-            if expected_src_value and expected_src_value != 'no_data':
+            if expected_src_value and expected_src_value != 'else':
                 case_statements[tgt_field].append(
                     f"    when  {src_table}.{src_field} = {expected_src_value}")
                 case_statements[tgt_field].append(
                         f"      then {equivalent_model_value}")
-            elif expected_src_value == 'no_data':
-                # Handle the ELSE clause for `no_data`
+            elif expected_src_value == 'else':
+                # Handle the ELSE clause for `else`
                 case_statements[tgt_field].append(
                     f"    else {equivalent_model_value}"
                 )

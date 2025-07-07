@@ -15,38 +15,35 @@ src_table,src_field,expected_src_value,equivalent_model_value,tgt_field,in_use
 "clinical","race",,'Middle Eastern or North African',"race",F
 "clinical","race",,'South Asian',"race",F
 "clinical","race",is null,'Unknown',"race",T
-"clinical","race","no_data",'Unknown',"race",T
+"clinical","race","else",clinical.race,"race",T
 "clinical","sex",'Female','Female',"sex",T
 "clinical","sex",'Male','Male',"sex",T
 "clinical","sex",'Other','Other',"sex",F
 "clinical","sex",'Unknown','Unknown',"sex",F
 "clinical","sex",is null,'Unknown',"sex",T
-"clinical","sex","no_data",null,"sex",T
+"clinical","sex","else",clinical.sex,"sex",T
 "clinical","ethnicity",'Hispanic/Latino Origin','Hispanic or Latino',"ethnicity",T
 "clinical","ethnicity",'Not of Hispanic or Latino Origin','Not Hispanic or Latino',"ethnicity",T
 "clinical","ethnicity",'Patient Refused','Prefer not to answer',"ethnicity",T
 "clinical","ethnicity",'Unknown','Unknown',"ethnicity",T
 "clinical","ethnicity",is null,'Unknown',"ethnicity",T
-"clinical","ethnicity","no_data",null,"ethnicity",T
+"clinical","ethnicity","else",clinical.ethnicity,"ethnicity",T
 "clinical","ds_diagnosis",'1','T21',"down_syndrome_status",T
 "clinical","ds_diagnosis",'0','D21',"down_syndrome_status",F
-"clinical","ds_diagnosis",is null,'D21',"down_syndrome_status",T
-"clinical","ds_diagnosis","no_data",'D21',"down_syndrome_status",T
+"clinical","ds_diagnosis",is null,null,"down_syndrome_status",T
+"clinical","ds_diagnosis","else",clinical.ds_diagnosis,"down_syndrome_status",T
 "clinical","assertion",'1','Observed',"condition_interpretation",T
 "clinical","assertion",'0','Not Observed',"condition_interpretation",T
 "clinical","assertion",is null,null,"condition_interpretation",T
-"clinical","assertion","no_data",null,"condition_interpretation",T
-"clinical","age",'Age 90 or older',0,"age_at_first_patient_engagement",T
-"clinical","age",is null,0,"age_at_first_patient_engagement",T
-"clinical","age","no_data",FLOOR(CAST(clinical.age AS FLOAT) * 365.25),"age_at_first_patient_engagement",T
+"clinical","assertion","else",null,"condition_interpretation",T
 "clinical","family_type",,'Control-only',"family_type",F
 "clinical","family_type",,'Duo',"family_type",F
 "clinical","family_type",,'Other',"family_type",F
 "clinical","family_type",'Proband-only','Proband-only',"family_type",T
 "clinical","family_type",,'Trio',"family_type",F
 "clinical","family_type",,'Trio Plus,"family_type",F
-"clinical","family_type",is null,'Other',"family_type",T
-"clinical","family_type","no_data",'Other',"family_type",T
+"clinical","family_type",is null,'Proband',"family_type",T
+"clinical","family_type","else",clinical.family_type,"family_type",T
 "clinical","family_relationship",'Proband','Proband',"family_relationship",T
 "clinical","family_relationship",,'Father',"family_relationship",F
 "clinical","family_relationship",,'Mother',"family_relationship",F
@@ -54,8 +51,12 @@ src_table,src_field,expected_src_value,equivalent_model_value,tgt_field,in_use
 "clinical","family_relationship",,'Other relative',"family_relationship",F
 "clinical","family_relationship",,'Unrelated control',"family_relationship",F
 "clinical","family_relationship",is null,'Proband',"family_relationship",T
-"clinical","family_relationship","no_data",'Proband',"family_relationship",T
-"clinical","first_patient_engagement_event",is null,'UNKNOWN',"first_patient_engagement_event",T
-"clinical","first_patient_engagement_event",is not null,clinical.first_patient_engagement_event,"first_patient_engagement_event",T
-"clinical","first_patient_engagement_event","no_data",'UNKNOWN',"first_patient_engagement_event",T
-
+"clinical","family_relationship","else",clinical.family_relationship,"family_relationship",T
+"clinical","condition","bmi",clinical.assertion,"measure_value",T
+"clinical","condition","height",clinical.assertion,"measure_value",T
+"clinical","condition","weight",clinical.assertion,"measure_value",T
+"clinical","condition","else",null,"measure_value",T
+"clinical","condition",'bmi','lb/ft',"measure_unit",T
+"clinical","condition",'height','ft',"measure_unit",T
+"clinical","condition",'weight','lb',"measure_unit",T
+"clinical","condition","else",null,clinical.condition

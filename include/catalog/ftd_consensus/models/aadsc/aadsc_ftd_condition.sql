@@ -1,14 +1,14 @@
 {{ config(materialized='table', schema='aadsc_data') }}
 
 {% set relation = ref('aadsc_stg_clinical') %}
-{% set constant_columns = ['ftd_index','MASKED_ID','AGE','SEX','RACE','ETHNICITY','EXTRACTION_DATE','HEIGHT','WEIGHT'] %}
+{% set constant_columns = ['ftd_index','MASKED_ID','AGE','SEX','RACE','ETHNICITY','EXTRACTION_DATE'] %}
 {% set condition_columns = get_columns(relation=relation, exclude=constant_columns) %}
 
     with 
     unpivot_df as (
     -- Convert from 'wide' to 'long' src data format.
     -- Uses union all strategy as it is available across dbs.
-    -- Output schema: 'ftd_index','masked_id','age','sex','race','ethnicity','extraction_date','bmi','height','weight','condition','assertion'
+    -- Output schema: 'ftd_index','masked_id','age','sex','race','ethnicity','extraction_date','bmi','height','weight','condition','assertion'(1,bmi,height,or weight)
     
     {% for col in condition_columns %}
         select
@@ -47,12 +47,16 @@
         "icd9_codes_with_prefix",
         "icd10_codes_with_prefix",
         "icdO_codes_with_prefix",
-        "icd10cm_label"
+        "icd10cm_label",
+        "loinc_label",
+        "loinc_code"
     from {{ ref('annotations') }} as a
     where "icd9_codes_with_prefix" is not null 
         or "icd10_codes_with_prefix" is not null 
         or "icdO_codes_with_prefix" is not null
+        or "loinc_code" is not null
     )
+
     ,source as (
         select 
             clinical.ftd_index,
@@ -61,20 +65,13 @@
             ::text as "participant_external_id",
             clinical.condition::text as "condition_or_measure_source_text",
                 case
-                when  clinical.age = 'Age 90 or older'
-                    then 0
-                when  clinical.age is null
-                    then 0
-                else FLOOR(CAST(clinical.age AS FLOAT) * 365.25)
-            end as "age_at_first_patient_engagement",
-                case
-                when  clinical.assertion = '1'
+                when clinical.assertion = '1'
                     then 'Observed'
                 when  clinical.assertion = '0'
                     then 'Not Observed'
                 when  clinical.assertion is null
                     then null
-                else null
+                else null -- NULL for bmi, height, weight
             end as "condition_interpretation",
             ha.hpo_label,
             ha.hpo_code,
@@ -82,22 +79,36 @@
             ma.mondo_code,
                 case 
                 when ha.hpo_code is null and ma.mondo_code is null
-                    then (select "icd10cm_label" 
+                    then (select COALESCE("icd10cm_label","loinc_label",'') 
                           from other_annotations 
                           where condition_name = clinical.condition
-                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix"
+                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix", "loinc_code"
                           limit 1)::text
                 else null 
             end as "other_label",
                 case 
                 when ha.hpo_code is null and ma.mondo_code is null
-                    then (select COALESCE("icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix",'') 
+                    then (select COALESCE("icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix","loinc_code",'') 
                           from other_annotations 
                           where condition_name = clinical.condition
-                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix"
+                          order by "icd9_codes_with_prefix", "icd10_codes_with_prefix", "icdO_codes_with_prefix", "loinc_code"
                           limit 1)::text
                 else null 
             end as "other_code",
+                case
+                when clinical.condition in ('bmi','height','weight')
+                    then clinical.assertion
+                else null
+            end as "measure_value",
+                case
+                when  clinical.condition = 'bmi'
+                    then 'kg/m2' 
+                when  clinical.condition = 'height'
+                    then 'in'
+                when  clinical.condition = 'weight'
+                    then 'lb'
+                else null
+            end as "measure_unit",
         from unpivot_df as clinical
         left join mondo_annotations as ma
             on ma.condition_name = clinical.condition
@@ -115,7 +126,7 @@ select
     null::text as "event_type",
     null::integer as "age_at_condition_measure_observation",
     source.condition_or_measure_source_text,
-    source.age_at_first_patient_engagement,
+    null::integer as "age_at_first_patient_engagement",
     source.condition_interpretation,
     null::text as "condition_status",
     null::text as "condition_data_source",
@@ -127,6 +138,6 @@ select
     null::text as "maxo_code",
     source.other_label,
     source.other_code,
-    null::text as "measure_value",
-    null::text as "measure_unit"
+    source.measure_value as "measure_value",
+    source.measure_unit as "measure_unit"
 from source

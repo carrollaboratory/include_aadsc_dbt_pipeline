@@ -6,7 +6,7 @@ participant_external_id,"Unique, de-identified identifier for the participant, a
 event_id,"Identifier for event (Visit, Survey completion, Sample collection, etc.) to which the Condition data are linked, if applicable. There may be multiple events linked to a Participant.",string,,,
 event_type,"Type of event for which Event ID is given (Visit, Survey completion, Sample collection, etc.)",string,Survey;Visit,,
 condition_or_measure_source_text,"Co-occurring Condition (phenotype or diagnosis) or Measure (observation with numeric value), as described by data contributor. The Down Syndrome Genetic Diagnosis will be rolled into this field.",string,,,
-age_at_condition_measure_observation,"Age in days at which Condition or Measure was observed, recorded, or diagnosed",integer,,,not_null|accepted_values
+age_at_condition_measure_observation,"Age in days at which Condition or Measure was observed, recorded, or diagnosed",integer,,,not_null
 condition_interpretation,Whether Condition was observed or not,enumeration,Observed;Not Observed,,accepted_values
 condition_status,"Whether the Condition is ongoing, has been resolved, or this is a general history of the condition without known dates",enumeration,Current;Resolved;History Of,,accepted_values
 condition_data_source,Whether Condition information was obtained by the investigator or reported by participant/family member,enumeration,Clinical;Self-reported,,accepted_values

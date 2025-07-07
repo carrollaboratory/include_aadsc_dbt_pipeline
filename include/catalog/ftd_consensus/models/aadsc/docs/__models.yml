@@ -43,9 +43,6 @@ models:
     data_type: integer
     tests:
     - not_null
-    - accepted_values:
-        values:
-        - nan
   - name: condition_interpretation
     description: '{{ doc("aadsc_ftd_condition_condition_interpretation") }}'
     data_type: enumeration
