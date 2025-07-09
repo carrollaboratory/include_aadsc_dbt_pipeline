@@ -16,7 +16,7 @@
             '{{ col }}' as condition,
             cast({{ col }} as varchar) as assertion
         from {{ ref('aadsc_stg_clinical') }}
-        where {{ col }} = 1
+        where {{ col }} IS NOT NULL
         {% if not loop.last %}union all{% endif %}
     {% endfor %}
     )
