@@ -14,8 +14,6 @@ macro-paths:
   - macros
 seed-paths:
   - seeds
-analysis-paths:
-  - analysis
 
 clean-targets:  # directories to be removed by `dbt clean`
   - "target"
