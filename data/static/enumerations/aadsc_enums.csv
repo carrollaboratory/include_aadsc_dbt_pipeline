@@ -59,4 +59,8 @@ src_table,src_field,expected_src_value,equivalent_model_value,tgt_field,in_use
 "clinical","condition",'bmi','lb/ft',"measure_unit",T
 "clinical","condition",'height','ft',"measure_unit",T
 "clinical","condition",'weight','lb',"measure_unit",T
-"clinical","condition","else",null,clinical.condition
+"clinical","condition","else",null,clinical.condition, F
+"clinical","age",'Age 90 or older',90,"age_at_last_vital_status",T
+"clinical","age", ">= 0 AND clinical.age < 90,FLOOR(CAST(clinical.age AS FLOAT) * 365.25),"age_at_last_vital_status",T
+"clinical","age",is null,null,"age_at_last_vital_status",T
+"clinical","age","else",null,"age_at_last_vital_status",T
