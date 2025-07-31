@@ -5,29 +5,7 @@
         select 
             clinical.ftd_index::text as "ftd_index",
             'AADSC' as "study_code",
-                
-    /* 
-        This macro generates the sql required to create a primary or foreign key
-        by the md5 on a composite string method.
-
-        Example usage - lacking double brackets:
-           generate_md5_composite_key("p", ['id','dob'])
-        generates the following sql
-            'p' || '_' || md5(studyid || CAST(coalesce(id, '') AS TEXT) || '|' || CAST(coalesce(dob, '') AS TEXT))
-        results in an id with the following format
-            p_a32b29ffb1a85590c4a6d4cbeec18636
-    */
-    
-    
-        
-
-        
-    
-    'c' || '_' || md5('aadsc' || '|' || CAST(coalesce(clinical.MASKED_ID, '') AS TEXT))
-    
-
-      
-            ::text as "participant_external_id",
+            clinical.masked_id::text as "participant_external_id",
             'Proband-only' as "family_type",
             'Proband' as "family_relationship",
                 case
@@ -80,6 +58,15 @@
                     then 'T21'
                 else null
             end as "down_syndrome_status",
+            case
+                when  clinical.age = 'Age 90 or older'
+                    then ROUND(90 * 365.25)
+                when  CAST(clinical.age AS FLOAT) >= 0 AND CAST(clinical.age AS FLOAT) < 90
+                    then ROUND(CAST(clinical.age AS FLOAT) * 365.25) -- years to days conversion
+                when  clinical.age is null
+                    then null
+                else null
+            end as "age_at_last_vital_status",
         from "dbt"."main_main"."aadsc_stg_clinical" as clinical
     )
 
@@ -102,5 +89,5 @@
        null::integer as "age_at_first_patient_engagement", --req
        null::text as "first_patient_engagement_event", --req
        null::text as "outcomes_vital_status",
-       null::integer as "age_at_last_vital_status"
+       source.age_at_last_vital_status::integer as "age_at_last_vital_status"
     from source

@@ -1,4 +1,13 @@
 
+  
+    
+    
+
+    create  table
+      "dbt"."main_aadsc_data"."aadsc_ftd_condition__dbt_tmp"
+  
+    as (
+      
 
 
 
@@ -1683,3 +1692,6 @@ select
     source.measure_value as "measure_value",
     source.measure_unit as "measure_unit"
 from source
+    );
+  
+  

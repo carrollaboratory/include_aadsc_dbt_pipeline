@@ -1,4 +1,13 @@
 
+  
+    
+    
+
+    create  table
+      "dbt"."main_aadsc_tgt_data"."tgt_condition__dbt_tmp"
+  
+    as (
+      
 
 
 
@@ -35,3 +44,7 @@ select
     *
 from ftd_condition c
 
+
+    );
+  
+  

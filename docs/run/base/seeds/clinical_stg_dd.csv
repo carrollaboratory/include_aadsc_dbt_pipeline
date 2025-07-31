@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "dbt"."main"."clinical_stg_dd" ("variable_name" text,"description" text,"data_type" text,"min" integer,"max" integer,"units" integer,"enumerations" integer,"comment" integer,"src_variable_name" text)
+  ;
+    -- dbt seed --
+    
+          COPY "dbt"."main"."clinical_stg_dd" FROM '/home/gutmanb/ftd/fhir/ftd/kf/include_aadsc_dbt_pipeline/seeds/clinical_stg_dd.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  

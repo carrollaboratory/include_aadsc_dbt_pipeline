@@ -1,4 +1,13 @@
--- Specifies the schema dynamically instead of the usual location in dbt_profile.yaml
+
+  
+    
+    
+
+    create  table
+      "dbt"."main_aadsc_tgt_data"."tgt_participant__dbt_tmp"
+  
+    as (
+      -- Specifies the schema dynamically instead of the usual location in dbt_profile.yaml
 
 
 
@@ -34,3 +43,7 @@ select
 from ftd_participant
 
 
+
+    );
+  
+  

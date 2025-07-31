@@ -5,7 +5,13 @@
 {% set condition_columns = get_columns(relation=relation, exclude=constant_columns) %}
 
     with 
-    unpivot_df as (
+    condition_display_lookup as (
+        select 
+          variable_name as condition,
+          description as display
+        from {{ ref('clinical_stg_dd') }}
+    )
+    ,unpivot_df as (
     -- Convert from 'wide' to 'long' src data format.
     -- Uses union all strategy as it is available across dbs.
     -- Output schema: 'ftd_index','masked_id','age','sex','race','ethnicity','extraction_date','bmi','height','weight','condition','assertion'(1,bmi,height,or weight)
@@ -61,9 +67,13 @@
         select 
             clinical.ftd_index,
             'AADSC' as "study_code",
-                {{ generate_global_id(prefix='c',descriptor=['clinical.MASKED_ID'], study_id='aadsc') }}
-            ::text as "participant_external_id",
-            clinical.condition::text as "condition_or_measure_source_text",
+            clinical.condition::text as "condition_or_measure_source_text_code", -- Ex: gi_ibs_status
+            cdl.display::text as "condition_or_measure_source_text_display", -- Ex: Irritable bowel syndrome
+                case 
+                when cdl.display = 'HP_0032551' then clinical.condition
+                else coalesce(cdl.display,clinical.condition,NULL) 
+            end as "condition_or_measure_source_text",
+            clinical.masked_id::text as "participant_external_id",
                 case
                 when clinical.assertion = '1'
                     then 'Observed'
@@ -114,6 +124,8 @@
             on ma.condition_name = clinical.condition
         left join hpo_annotations as ha
             on ha.condition_name = clinical.condition
+        left join condition_display_lookup as cdl
+            on cdl.condition = clinical.condition
     )
 
 
@@ -125,6 +137,8 @@ select
     null::text as "event_id",
     null::text as "event_type",
     null::integer as "age_at_condition_measure_observation",
+    source.condition_or_measure_source_text_display,
+    source.condition_or_measure_source_text_code,
     source.condition_or_measure_source_text,
     null::integer as "age_at_first_patient_engagement",
     source.condition_interpretation,

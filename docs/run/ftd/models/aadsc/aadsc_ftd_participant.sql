@@ -1,4 +1,13 @@
-{{ config(materialized='table', schema='aadsc_data') }}
+
+  
+    
+    
+
+    create  table
+      "dbt"."main_aadsc_data"."aadsc_ftd_participant__dbt_tmp"
+  
+    as (
+      
 
     with
     source as (
@@ -67,7 +76,7 @@
                     then null
                 else null
             end as "age_at_last_vital_status",
-        from {{ ref('aadsc_stg_clinical') }} as clinical
+        from "dbt"."main_main"."aadsc_stg_clinical" as clinical
     )
 
     select 
@@ -91,4 +100,6 @@
        null::text as "outcomes_vital_status",
        source.age_at_last_vital_status::integer as "age_at_last_vital_status"
     from source
-    
+    );
+  
+  
